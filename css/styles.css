@@ -10993,3 +10993,61 @@ header.masthead h1, header.masthead .h1 {
 #portfolio .container-fluid .portfolio-box:hover .portfolio-box-caption, #portfolio .container-sm .portfolio-box:hover .portfolio-box-caption, #portfolio .container-md .portfolio-box:hover .portfolio-box-caption, #portfolio .container-lg .portfolio-box:hover .portfolio-box-caption, #portfolio .container-xl .portfolio-box:hover .portfolio-box-caption, #portfolio .container-xxl .portfolio-box:hover .portfolio-box-caption {
   opacity: 1;
 }
+
+/* za affecte pri services */
+.service-item {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.6s ease-in-out;
+
+  padding: 20px; 
+  border-radius: 15px;  
+  background: transparent;  
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.service-item.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.service-item:hover {
+  transform: scale(1.1);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+/*puscica za on top*/
+.arrow-up-container {
+  position: relative; 
+  display: inline-block;
+  margin-top:100px;
+  margin-bottom:-100px;
+}
+
+.arrow-up-btn {
+  font-size: 2rem;
+  text-decoration: none;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  color: #f4623a;
+}
+
+.arrow-up-btn:hover {
+  transform: scale(1.2);
+  color: #d34c2e;
+}
+
+.arrow-up-btn i {
+  font-size: 2.5rem;
+}
+
+
+/*da lah displayas template*/
+.modal-body {
+  display: flex;
+  justify-content: center; 
+  align-items: center;        
+}

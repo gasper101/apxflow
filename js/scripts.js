@@ -57,3 +57,23 @@ window.addEventListener('DOMContentLoaded', event => {
     });
 
 });
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    let serviceItems = document.querySelectorAll(".service-item");
+
+    let observer = new IntersectionObserver(
+        (entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("show");
+                }
+            });
+        },
+        { threshold: 0.2 }
+    );
+
+    serviceItems.forEach((item) => {
+        observer.observe(item);
+    });
+});
