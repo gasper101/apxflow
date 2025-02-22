@@ -76,4 +76,22 @@ document.addEventListener("DOMContentLoaded", function () {
     serviceItems.forEach((item) => {
         observer.observe(item);
     });
+
+
+    let aboutItems = document.querySelectorAll(".about-item");
+
+    let observer2 = new IntersectionObserver(
+        (entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("show");
+                }
+            });
+        },
+        { threshold: 0.2 }
+    );
+
+    aboutItems.forEach((item) => {
+        observer2.observe(item);
+    });
 });

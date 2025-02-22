@@ -22,15 +22,16 @@
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
             <div class="container px-4 px-lg-5">
-                <a class="navbar-brand" href="#page-top" style="margin:-80px; margin-left:10px;">
-                    <img src="/assets/img/innoweb-noBG.png" alt="Logo" width="250" height="250">
+                <a class="navbar-brand" href="#page-top" style="margin-left:10px; display: inline-flex; align-items: center;">
+                    <i class="bi-code-slash fs-1 text-primary"></i>
+                    <span style="margin-left: 10px;">INNOWEB</span>
                 </a>
                 <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto my-2 my-lg-0">
                         <li class="nav-item"><a class="nav-link" href="#about">O nas</a></li>
                         <li class="nav-item"><a class="nav-link" href="#services">Storitve</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#portfolio">Primeri</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#portfolio">Projekti</a></li>
                         <li class="nav-item"><a class="nav-link" href="#contact">Kontakt</a></li>
                     </ul>
                 </div>
@@ -53,48 +54,89 @@
             </div>
         </header>
         <!-- About-->
-        <section class="page-section bg-primary" id="about">
+        <section class="page-section bg-primary" id="about" style="margin-bottom:20px;">
             <div class="container px-4 px-lg-5">
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-lg-8 text-center">
                         <h2 class="text-white mt-0">Vse, kar potrebujete za uspešno spletno stran!</h2>
                         <hr class="divider divider-light" />
                         <p class="text-white-75 mb-4">InnoWeb vam ponuja profesionalne in sodobne spletne rešitve, prilagojene vašemu podjetju. Z našo pomočjo bo vaša spletna stran zasijala in privabila več strank!</p>
-                        <a class="btn btn-light btn-xl" href="#services">Storitve!</a>
+                        <a class="btn btn-light btn-xl" href="#about">Ekipa</a>
                     </div>
                 </div>
             </div>
         </section>
 
+        <!-- About Us -->
+        <section class="page-section py-5" id="about" style="min-height: 100vh;">
+            <div class="container px-4 px-lg-5">
+                <h2 class="text-center mt-0">O Nas</h2>
+                <hr class="divider" />
+        
+                <!-- Row 1: Naša Ekipa -->
+                <div class="row gx-4 gx-lg-5 align-items-center mb-5 about-item">
+                    <div class="col-md-4 text-center">
+                        <img src="/assets/img/feri.jpg" alt="Ekipa" style="width: 100%; height: 100%;">
+                    </div>
+                    <div class="col-md-8">
+                        <h3 class="h4 mb-2">Naša Ekipa</h3>
+                        <p class="text-muted mb-0">Smo študentje Univerze FERI v Mariboru, s področja računalništva in informacijskih tehnologij. Kljub študentskemu statusu si prizadevamo ustvarjati edinstvene rešitve, ki ustrezajo potrebam naših strank.</p>
+                    </div>
+                </div>
+        
+                <!-- Row 2: Naše Storitve -->
+                <div class="row gx-4 gx-lg-5 align-items-center mb-5 about-item">
+                    <div class="col-md-8">
+                        <h3 class="h4 mb-2">Tehnologije</h3>
+                        <p class="text-muted mb-0">Uporabljamo sodobne tehnologije za spletni razvoj, vključno s HTML5, CSS3, JavaScript, React, Django in PostgreSQL.</p>
+                    </div>
+                    <div class="col-md-4 text-center">
+                        <img src="/assets/img/technologies.png" alt="Storitve" style="width: 100%; height: 100%;">
+                    </div>
+                </div>
+        
+                <!-- Row 3: Naši Cilji -->
+                <div class="row gx-4 gx-lg-5 align-items-center mb-5 about-item">
+                    <div class="col-md-4 text-center">
+                        <img src="/assets/img/goals.jpg" alt="Cilji" style="width: 100%; height: 100%;">
+                    </div>
+                    <div class="col-md-8">
+                        <h3 class="h4 mb-2">Naši Cilji</h3>
+                        <p class="text-muted mb-0">Naš glavni cilj je pomagati podjetjem uspešno priti v digitalni svet.</p>
+                    </div>
+                </div>
+            </div>
+        </section>        
+
         <!-- Services-->
-        <section class="page-section" id="services">
+        <section class="page-section" id="services" style="min-height: 100vh;">
             <div class="container px-4 px-lg-5">
                 <h2 class="text-center mt-0">Kaj Ponujamo</h2>
                 <hr class="divider" />
                 <div class="row gx-4 gx-lg-5">
                     <div class="col-lg-3 col-md-6 text-center">
-                        <div class="mt-5 service-item">
-                            <div class="mb-2"><i class="bi-code-slash fs-1 text-primary"></i></div>
+                        <div class="mt-5 service-item h-100">
+                            <div class="mb-2"><i class="bi bi-display fs-1 text-primary"></i></div>
                             <h3 class="h4 mb-2">Unikatne Spletne Strani</h3>
                             <p class="text-muted mb-0">Oblikujemo in razvijamo visokozmogljive spletne strani po meri vaših potreb.</p>
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-6 text-center">
-                        <div class="mt-5 service-item">
+                        <div class="mt-5 service-item h-100">
                             <div class="mb-2"><i class="bi-speedometer fs-1 text-primary"></i></div>
                             <h3 class="h4 mb-2">Hitro & Optimizirano</h3>
                             <p class="text-muted mb-0">Naše spletne strani so optimizirane za hitrost, SEO in vrhunsko uporabniško izkušnjo.</p>
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-6 text-center">
-                        <div class="mt-5 service-item">
+                        <div class="mt-5 service-item h-100">
                             <div class="mb-2"><i class="bi-phone fs-1 text-primary"></i></div>
                             <h3 class="h4 mb-2">Prilagojeno vsem Napravam</h3>
                             <p class="text-muted mb-0">Vsaka spletna stran, ki jo ustvarimo, je popolnoma odzivna in deluje na vseh napravah.</p>
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-6 text-center">
-                        <div class="mt-5 service-item">
+                        <div class="mt-5 service-item h-100">
                             <div class="mb-2"><i class="bi-people fs-1 text-primary"></i></div>
                             <h3 class="h4 mb-2">Stalna Podpora za vse Storitve</h3>
                             <p class="text-muted mb-0">Nudimo vzdrževanje, posodobitve in podporo, da vaša stran deluje brezhibno.</p>
@@ -107,6 +149,8 @@
 
         <!-- Portfolio-->
         <div id="portfolio">
+            <h2 class="text-center mt-0">Naši projekti</h2>
+            <hr class="divider" />
             <div class="container-fluid p-0">
                 <div class="row g-0">
                     <!--display templte example-->
