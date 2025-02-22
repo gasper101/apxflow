@@ -11060,10 +11060,14 @@ header.masthead h1, header.masthead .h1 {
   padding: 20px;
   border-radius: 15px;
   background: transparent;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
 .about-item.show {
   opacity: 1;
   transform: translateY(0);
+}
+
+.icon-style {
+  color: #a8a5a2; 
+  font-size: 1.5rem;
 }
