@@ -11071,3 +11071,10 @@ header.masthead h1, header.masthead .h1 {
   color: #a8a5a2; 
   font-size: 1.5rem;
 }
+
+.portfolio-box {
+  margin: 0;
+  padding: 0;
+  border: none; /* Ensures no extra spacing */
+  display: block; /* Ensures the button takes full space */
+}
