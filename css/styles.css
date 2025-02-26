@@ -11078,3 +11078,17 @@ header.masthead h1, header.masthead .h1 {
   border: none; /* Ensures no extra spacing */
   display: block; /* Ensures the button takes full space */
 }
+
+
+@media (max-width: 768px) {
+  .service-item {
+    transition: none !important;
+    transform: none !important;
+    opacity: 1 !important;
+  }
+
+  .service-item:hover {
+    transform: none !important;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  }
+}
