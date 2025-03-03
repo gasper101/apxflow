@@ -11119,4 +11119,18 @@ header.masthead h1, header.masthead .h1 {
     transform: none !important;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
   }
+
+  .col-md-6 {
+    margin-bottom: 15px;
+  }
+
+  .about-item:first-of-type, 
+  .about-item:last-of-type {
+    flex-direction: column-reverse !important;
+    text-align: center;
+  }
+  
+  .img-fluid{
+    margin-bottom:10px;
+  }
 }
