@@ -94,4 +94,24 @@ document.addEventListener("DOMContentLoaded", function () {
     aboutItems.forEach((item) => {
         observer2.observe(item);
     });
+
+
+
+    let fadeItems = document.querySelectorAll(".fade-in-item");
+
+    let observer3 = new IntersectionObserver(
+        (entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("show");
+                }
+            });
+        },
+        { threshold: 0.2 }
+    );
+
+    fadeItems.forEach((item) => {
+        observer3.observe(item);
+    });
+
 });

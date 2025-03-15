@@ -10858,10 +10858,12 @@ hr.divider {
   margin: 1.5rem auto;
   background-color: #f4623a;
   opacity: 1;
+  border: none;
 }
 
 hr.divider-light {
   background-color: #fff;
+  border: none;
 }
 
 #mainNav {
@@ -11017,6 +11019,26 @@ header.masthead h1, header.masthead .h1 {
   transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
+.about-us-item {
+  transition: transform 0.3s ease-in-out; 
+}
+
+.about-us-item:hover {
+  transform: scale(1.1);
+  transition: transform 0.3s ease-in-out;
+}
+
+.fade-in-item{
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.6s ease-in-out;
+}
+
+.fade-in-item.show{
+  opacity: 1;
+  transform: translateY(0);
+}
+
 /*puscica za on top*/
 .arrow-up-container {
   position: relative; 
@@ -11108,7 +11130,109 @@ header.masthead h1, header.masthead .h1 {
   border: none;
 }
 
+
+@keyframes slideInFromRight {
+  from {
+      transform: translateX(100%); /* Start off-screen to the right */
+      opacity: 0;
+  }
+  to {
+      transform: translateX(0); /* Move to original position */
+      opacity: 1;
+  }
+}
+
+.animate-text {
+  animation: slideInFromRight 1.5s ease-in-out forwards;
+}
+
+@keyframes slideUp {
+  from {
+      transform: translateY(100%); /* Start off-screen at the bottom */
+      opacity: 0; /* Start invisible */
+  }
+  to {
+      transform: translateY(0); /* Move to original position */
+      opacity: 1; /* Fade in */
+  }
+}
+
+.slide-up{
+  animation: slideUp 1.5s ease-in-out forwards;
+}
+
+.col-lg-4.col-sm-6 {
+  margin-bottom: 5px; /* Adjust the value as needed */
+}
+
+.portfolio-box {
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  overflow: hidden; 
+}
+
+
+.bubble {
+  position: absolute;
+  top: 10%;
+  left: 10%;
+  width: 320px;
+  height: 320px;
+  background: linear-gradient(135deg, rgba(255, 165, 0, 0.6), rgba(255, 193, 7, 0.5));
+  border-radius: 50%;
+  z-index: -1000 !important;
+  animation: deformBubble 6s infinite alternate ease-in-out;
+}
+
+
+@keyframes deformBubble {
+  0% {
+      transform: scale(1) skewX(0deg) skewY(0deg);
+      border-radius: 50% 50% 50% 50%;
+  }
+  25% {
+      transform: scale(1.05) skewX(5deg) skewY(-5deg);
+      border-radius: 45% 55% 50% 60%;
+  }
+  50% {
+      transform: scale(1.1) skewX(-5deg) skewY(5deg);
+      border-radius: 55% 45% 60% 50%;
+  }
+  75% {
+      transform: scale(1.05) skewX(3deg) skewY(-3deg);
+      border-radius: 50% 60% 40% 55%;
+  }
+  100% {
+      transform: scale(1) skewX(0deg) skewY(0deg);
+      border-radius: 50% 50% 50% 50%;
+  }
+}
+
 @media (max-width: 768px) {
+  .bubble {
+      width: 220px;
+      height: 220px;
+      left: 0;
+  }
+}
+
+/* Define the fade-in animation */
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+      transform: translateY(20px); /* Optional: Add a slight upward movement */
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+.row.flex-md-row-reverse {
+  flex-direction: row-reverse;
+}
+
+@media (max-width: 850px) {
   .service-item {
     transition: none !important;
     transform: none !important;
@@ -11132,5 +11256,95 @@ header.masthead h1, header.masthead .h1 {
   
   .img-fluid{
     margin-bottom:10px;
+  }
+
+  .masthead{
+    height:200vw !important;
+  }
+
+  .row.align-items-center {
+    flex-direction: column;
+  }
+
+  /* Center-align the image and reduce its size */
+  .col-md-5.text-center {
+      margin-bottom: 2rem; /* Add space between image and text */
+  }
+
+  .col-md-5.text-center img {
+      max-width: 60%; /* Reduce image size on mobile */
+  }
+
+  /* Adjust heading font size and alignment */
+  h2.fw-bold {
+      font-size: 1.75rem; /* Reduce heading size */
+      text-align: center; /* Center-align heading */
+  }
+
+  /* Adjust divider width and alignment */
+  .divider {
+      max-width: 50vw !important; /* Reduce divider width */
+      margin: 0 auto !important; /* Center-align divider */
+  }
+
+  /* Adjust list item font size */
+  .list-unstyled li {
+      font-size: 0.9rem; /* Reduce list item size */
+  }
+
+  /* Adjust spacing for list items */
+  .list-unstyled li.mb-3 {
+      margin-bottom: 1rem !important; /* Reduce spacing between list items */
+  }
+
+  /* Ensure the section height adjusts properly */
+  section.container {
+      height: auto !important; /* Allow height to adjust dynamically */
+      padding: 2rem 0 !important; /* Adjust padding for mobile */
+  }
+
+  section.container {
+    padding-left: 20px !important; /* Fixed left margin */
+    padding-right: 20px !important; /* Fixed right margin */
+  }
+
+
+  .bubble{
+    left:25%;
+    top:8%;
+  }
+
+  .masthead .bubble {
+    left:25% !important;
+    top:60% !important;
+  }
+
+
+  .row.flex-md-row-reverse {
+    flex-direction: column !important;
+  }
+
+  .row.flex-md-row-reverse .col-md-4,
+  .row.flex-md-row-reverse .col-md-8 {
+      width: 100%;
+      max-width: 100%;
+      text-align: center;
+  }
+
+  .row.flex-md-row-reverse .col-md-4 {
+      margin-bottom: 20px; /* Add spacing between image and text */
+  }
+
+  .row.flex-md-row-reverse .col-md-8 {
+    order: 1; /* Move text to the top */
+  }
+
+  .row.flex-md-row-reverse .col-md-4 {
+      order: 2; /* Move image to the bottom */
+      margin-top: 20px; /* Add spacing between text and image */
+  }
+
+  .divider{
+    margin-bottom: 15px !important;
   }
 }
