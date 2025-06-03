@@ -11364,7 +11364,9 @@ header.masthead h1, header.masthead .h1 {
         display: none;
     }
 
-  .about-us-item:active {
-    transform: scale(1.05); /* Subtler feedback for touch */
+  .about-us-item:hover {
+    transform: none !important;
+    animation: none !important;
   }
+
 }
