@@ -7,51 +7,67 @@
 // Scripts
 // 
 
-window.addEventListener('DOMContentLoaded', event => {
+window.addEventListener('DOMContentLoaded', () => {
 
-    // Navbar shrink function
-    var navbarShrink = function () {
-        const navbarCollapsible = document.body.querySelector('#mainNav');
-        if (!navbarCollapsible) {
-            return;
-        }
+    // === 1. Navbar Shrink Function ===
+    const navbarShrink = () => {
+        const navbar = document.querySelector('#mainNav');
+        if (!navbar) return;
         if (window.scrollY === 0) {
-            navbarCollapsible.classList.remove('navbar-shrink')
+            navbar.classList.remove('navbar-shrink');
         } else {
-            navbarCollapsible.classList.add('navbar-shrink')
+            navbar.classList.add('navbar-shrink');
         }
-
     };
 
-    // Shrink the navbar 
-    navbarShrink();
+    navbarShrink(); // Run on load
+    document.addEventListener('scroll', navbarShrink); // Run on scroll
 
-    // Shrink the navbar when page is scrolled
-    document.addEventListener('scroll', navbarShrink);
 
-    // Activate Bootstrap scrollspy on the main nav element
-    const mainNav = document.body.querySelector('#mainNav');
+    // === 2. Activate Nav Link on Scroll ===
+    const sections = document.querySelectorAll('section');
+    const navLinks = document.querySelectorAll('.nav-link');
+
+    const activateLink = () => {
+        // Avoid activating anything if we're in the header area (e.g., scrollY < 300)
+        if (window.scrollY < 300) {
+            navLinks.forEach(link => link.classList.remove('active'));
+            return;
+        }
+
+        let index = sections.length;
+        while (--index && window.scrollY + 100 < sections[index].offsetTop) {}
+
+        navLinks.forEach(link => link.classList.remove('active'));
+        if (navLinks[index]) {
+            navLinks[index].classList.add('active');
+        }
+    };
+
+    activateLink(); // Run on load
+    window.addEventListener('scroll', activateLink); // Run on scroll
+
+    // === 3. Bootstrap ScrollSpy (Optional if using custom logic above) ===
+    const mainNav = document.querySelector('#mainNav');
     if (mainNav) {
         new bootstrap.ScrollSpy(document.body, {
             target: '#mainNav',
             rootMargin: '0px 0px -40%',
         });
-    };
+    }
 
-    // Collapse responsive navbar when toggler is visible
-    const navbarToggler = document.body.querySelector('.navbar-toggler');
-    const responsiveNavItems = [].slice.call(
-        document.querySelectorAll('#navbarResponsive .nav-link')
-    );
-    responsiveNavItems.map(function (responsiveNavItem) {
-        responsiveNavItem.addEventListener('click', () => {
+    // === 4. Collapse Navbar on Link Click (Mobile Only) ===
+    const navbarToggler = document.querySelector('.navbar-toggler');
+    const responsiveNavItems = document.querySelectorAll('#navbarResponsive .nav-link');
+    responsiveNavItems.forEach((item) => {
+        item.addEventListener('click', () => {
             if (window.getComputedStyle(navbarToggler).display !== 'none') {
                 navbarToggler.click();
             }
         });
     });
 
-    // Activate SimpleLightbox plugin for portfolio items
+    // === 5. SimpleLightbox for Portfolio Images ===
     new SimpleLightbox({
         elements: '#portfolio a.portfolio-box'
     });
