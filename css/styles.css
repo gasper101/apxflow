@@ -11142,6 +11142,214 @@ header.masthead h1, header.masthead .h1 {
   border: none;
 }
 
+.timeline {
+    position: relative;
+    padding: 0;
+    list-style: none;
+}
+
+.timeline:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 4px;
+    margin-left: -2px;
+    background-color: #e9ecef; /* Light gray line */
+    z-index: 0;
+}
+
+.timeline > li {
+    margin-bottom: 80px;
+    position: relative;
+    min-height: 100px;
+}
+
+.timeline > li:after,
+.timeline > li:before {
+    content: ' ';
+    display: table;
+}
+.timeline > li:after {
+    clear: both;
+}
+
+.timeline > li .timeline-panel {
+    float: left;
+    width: 45%;
+    padding: 25px;
+    border: 1px solid #dee2e6; /* Border for the panel */
+    border-radius: 8px;
+    text-align: right;
+    position: relative;
+    background-color: #fff;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08); /* Soft shadow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effect */
+    z-index: 1;
+}
+
+.timeline > li .timeline-panel:hover {
+    transform: translateY(-5px); /* Lift effect on hover */
+    box-shadow: 0 8px 20px rgba(0,0,0,0.12); /* Larger shadow on hover */
+}
+
+/* This creates the triangular shape on the right side of the left-aligned panels,
+    giving it a "message bubble" appearance. */
+.timeline > li .timeline-panel:before {
+    content: '';
+    position: absolute;
+    top: 26px;
+    right: -15px; /* Positioned on the right side */
+    border-top: 15px solid transparent;
+    border-bottom: 15px solid transparent;
+    border-left: 15px solid #dee2e6; /* Creates left-pointing triangle */
+    border-right: 0;
+    z-index: 1;
+}
+.timeline > li .timeline-panel:after {
+    content: '';
+    position: absolute;
+    top: 27px;
+    right: -14px; /* Positioned slightly inside the border */
+    border-top: 14px solid transparent;
+    border-bottom: 14px solid transparent;
+    border-left: 14px solid #fff; /* Inner white triangle */
+    border-right: 0;
+    z-index: 1;
+}
+
+.timeline > li .timeline-image {
+    z-index: 100;
+    position: absolute;
+    left: 50%;
+    width: 90px;
+    height: 90px;
+    margin-left: -45px;
+    border-radius: 100%; /* Circular shape */
+    text-align: center;
+    font-size: 2.5rem;
+    line-height: 80px; /* Vertically center icon */
+    color: #fff;
+    background-color: #f4623a; /* Accent color */
+    border: 8px solid #f8f9fa; /* White border */
+    box-shadow: 0 0 0 4px rgba(244, 98, 58, 0.3); /* Outer glow */
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.timeline > li .timeline-image:hover {
+    background-color: #e65c2a; /* Darker accent on hover */
+    transform: scale(1.05); /* Slight scale on hover */
+}
+
+.timeline > li.timeline-inverted > .timeline-panel {
+    float: right;
+    text-align: left;
+}
+
+/* This creates the triangular shape on the left side of the right-aligned panels,
+    pointing towards the center. */
+.timeline > li.timeline-inverted > .timeline-panel:before {
+    left: -15px; /* Positioned on the left side of the right-floating panel */
+    right: auto; /* Remove right positioning */
+    border-top: 15px solid transparent;
+    border-bottom: 15px solid transparent;
+    border-right: 15px solid #dee2e6; /* Uses border-right to create a right-pointing triangle */
+    border-left: 0; /* Ensures no left border */
+    z-index: 1;
+}
+.timeline > li.timeline-inverted > .timeline-panel:after {
+    left: -14px; /* Positioned slightly inside the border */
+    right: auto; /* Remove right positioning */
+    border-top: 14px solid transparent;
+    border-bottom: 14px solid transparent;
+    border-right: 14px solid #fff; /* Uses border-right for the inner right-pointing triangle */
+    border-left: 0; /* Ensures no left border */
+    z-index: 1;
+}
+
+.timeline > li:last-child {
+    margin-bottom: 0;
+}
+
+.timeline-heading h4 {
+    margin-top: 0;
+    color: #343a40; /* Dark gray for headings */
+    font-weight: 700;
+    font-size: 1.5rem;
+}
+.timeline-heading h4.subheading {
+    font-size: 1.1em;
+    color: #6c757d; /* Medium gray for subheadings */
+    margin-bottom: 15px;
+}
+.timeline-body > p,
+.timeline-body > ul {
+    margin-bottom: 0;
+    font-family: 'Lato', sans-serif; /* A more readable body font */
+    font-size: 1.05rem;
+    color: #495057; /* Darker gray for body text */
+    line-height: 1.6;
+}
+
+@media (max-width: 767px) {
+    .timeline:before {
+        left: 20px;
+    }
+    .timeline > li .timeline-panel {
+        width: calc(100% - 70px);
+        float: right;
+        text-align: left;
+        margin-left: 70px;
+    }
+    .timeline > li .timeline-image {
+        left: 0;
+        margin-left: 0;
+    }
+    .timeline > li .timeline-panel:before {
+        left: -15px;
+        right: auto;
+        border-left-width: 0;
+        border-right: 15px solid #dee2e6;
+    }
+    .timeline > li .timeline-panel:after {
+        left: -14px;
+        right: auto;
+        border-left-width: 0;
+        border-right: 14px solid #fff;
+    }
+    .timeline > li.timeline-inverted > .timeline-panel {
+        float: right;
+        text-align: left;
+    }
+    .timeline > li.timeline-inverted > .timeline-panel:before {
+        left: -15px;
+        right: auto;
+    }
+    .timeline > li.timeline-inverted > .timeline-panel:after {
+        left: -14px;
+        right: auto;
+    }
+
+    .timeline > li.timeline-inverted > .timeline-panel:before {
+        left: -15px;
+        right: auto;
+        border-top: 15px solid transparent;
+        border-bottom: 15px solid transparent;
+        border-right: 15px solid #dee2e6;
+        border-left-width: 0;
+    }
+    .timeline > li.timeline-inverted > .timeline-panel:after {
+        left: -14px;
+        right: auto;
+        border-top: 14px solid transparent;
+        border-bottom: 14px solid transparent;
+        border-right: 14px solid #fff;
+        border-left-width: 0;
+    }
+}
+
+
 
 @keyframes slideInFromRight {
   from {
