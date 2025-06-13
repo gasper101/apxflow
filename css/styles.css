@@ -11187,6 +11187,8 @@ header.masthead h1, header.masthead .h1 {
     box-shadow: 0 4px 12px rgba(0,0,0,0.08); /* Soft shadow */
     transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effect */
     z-index: 1;
+    opacity: 0;
+    transform: translateX(-100px); 
 }
 
 .timeline > li .timeline-panel:hover {
@@ -11294,58 +11296,57 @@ header.masthead h1, header.masthead .h1 {
 
 @media (max-width: 767px) {
     .timeline:before {
-        left: 20px;
+        left: 18px; /* Move vertical line to the left */
     }
     .timeline > li .timeline-panel {
-        width: calc(100% - 70px);
-        float: right;
-        text-align: left;
-        margin-left: 70px;
+        width: calc(100% - 60px); /* Adjust width, considering image size */
+        float: right; /* All panels float right */
+        text-align: left; /* All panels align left */
+        margin-left: 60px; /* Push panels right to clear image */
+        transform: translateX(100px); /* All panels slide from right on mobile */
     }
     .timeline > li .timeline-image {
-        left: 0;
-        margin-left: 0;
+        left: 0; /* Move image to the left */
+        margin-left: 0; /* Remove negative margin */
+        /* Adjust image size for mobile */
+        width: 60px;
+        height: 60px;
+        line-height: 50px; /* Center icon vertically */
+        font-size: 1.8rem; /* Smaller icon size */
+        border: 6px solid #f8f9fa; /* Slightly smaller border */
+        box-shadow: 0 0 0 3px rgba(244, 98, 58, 0.3); /* Slightly smaller outer glow */
     }
-    .timeline > li .timeline-panel:before {
-        left: -15px;
-        right: auto;
-        border-left-width: 0;
-        border-right: 15px solid #dee2e6;
+    .timeline > li .timeline-panel:before,
+    .timeline > li .timeline-panel:after {
+        left: -15px; /* Position triangles on the left of all panels */
+        right: auto; /* Remove right positioning */
+        border-left: 0; /* Remove left border */
+        border-right: 15px solid #dee2e6; /* Make them point right */
     }
     .timeline > li .timeline-panel:after {
-        left: -14px;
-        right: auto;
-        border-left-width: 0;
-        border-right: 14px solid #fff;
+        border-right: 14px solid #fff; /* Inner triangle */
     }
+    /* Remove inverted specific styles on small screens as all are now right-floating */
     .timeline > li.timeline-inverted > .timeline-panel {
         float: right;
         text-align: left;
+        transform: translateX(100px); /* Ensure inverted panels also slide from right on mobile */
     }
-    .timeline > li.timeline-inverted > .timeline-panel:before {
+    .timeline > li.timeline-inverted > .timeline-panel:before,
+    .timeline > li.timeline-inverted > .timeline-panel:after {
         left: -15px;
         right: auto;
+        border-right: 15px solid #dee2e6;
+        border-left: 0;
     }
     .timeline > li.timeline-inverted > .timeline-panel:after {
-        left: -14px;
-        right: auto;
+        border-right: 14px solid #fff;
     }
 
-    .timeline > li.timeline-inverted > .timeline-panel:before {
-        left: -15px;
-        right: auto;
-        border-top: 15px solid transparent;
-        border-bottom: 15px solid transparent;
-        border-right: 15px solid #dee2e6;
-        border-left-width: 0;
-    }
-    .timeline > li.timeline-inverted > .timeline-panel:after {
-        left: -14px;
-        right: auto;
-        border-top: 14px solid transparent;
-        border-bottom: 14px solid transparent;
-        border-right: 14px solid #fff;
-        border-left-width: 0;
+    /* For mobile, all panels slide from right */
+    .timeline-panel.slide-in-left,
+    .timeline-panel.slide-in-right {
+        animation: slideInFromRight 1s ease-out forwards;
     }
 }
 
@@ -11363,15 +11364,15 @@ header.masthead h1, header.masthead .h1 {
 }
 
 @keyframes slideInFromLeft {
-            from {
-                opacity: 0;
-                transform: translateX(-100px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
+from {
+    opacity: 0;
+    transform: translateX(-100px);
+}
+to {
+    opacity: 1;
+    transform: translateX(0);
+}
+}
 
 .animate-text {
   animation: slideInFromRight 1.5s ease-in-out forwards;
