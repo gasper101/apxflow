@@ -130,4 +130,33 @@ document.addEventListener("DOMContentLoaded", function () {
         observer3.observe(item);
     });
 
+    let timelinePanels = document.querySelectorAll(".timeline-panel");
+
+    // Create an Intersection Observer instance
+    let observer4 = new IntersectionObserver(
+        (entries) => {
+            entries.forEach((entry) => {
+                // If the element is intersecting (in view)
+                if (entry.isIntersecting) {
+                    // Check if the parent li has the 'timeline-inverted' class
+                    const parentLi = entry.target.closest('li');
+                    if (parentLi && parentLi.classList.contains('timeline-inverted')) {
+                        // Add slide-in-right class for inverted panels
+                        entry.target.classList.add("slide-in-right");
+                    } else {
+                        // Add slide-in-left class for non-inverted panels
+                        entry.target.classList.add("slide-in-left");
+                    }
+                    // Stop observing once animated
+                    observer4.unobserve(entry.target);
+                }
+            });
+        },
+        { threshold: 0.2 } // Trigger when 20% of the item is visible
+    );
+
+    timelinePanels.forEach((panel) => {
+        observer4.observe(panel);
+    });
+
 });
