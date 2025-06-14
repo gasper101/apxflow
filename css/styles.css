@@ -11294,6 +11294,11 @@ header.masthead h1, header.masthead .h1 {
     line-height: 1.6;
 }
 
+.timeline-panel:hover{
+  transform: scale(1.005) !important;
+}
+
+
 @media (max-width: 767px) {
     .timeline:before {
         left: 18px; /* Move vertical line to the left */
@@ -11347,6 +11352,10 @@ header.masthead h1, header.masthead .h1 {
     .timeline-panel.slide-in-left,
     .timeline-panel.slide-in-right {
         animation: slideInFromRight 1s ease-out forwards;
+    }
+
+    .timeline-panel:hover{
+      transform: none;
     }
 }
 
