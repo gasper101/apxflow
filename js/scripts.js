@@ -29,32 +29,32 @@ window.addEventListener('DOMContentLoaded', () => {
     const navLinks = document.querySelectorAll('.nav-link');
 
     const activateLink = () => {
-        // Avoid activating anything if we're in the header area (e.g., scrollY < 300)
-        if (window.scrollY < 300) {
-            navLinks.forEach(link => link.classList.remove('active'));
-            return;
+        const viewportOffset = 300; 
+        navLinks.forEach(link => link.classList.remove('active'));
+
+        let activeSectionId = null;
+
+        for (let i = sections.length - 1; i >= 0; i--) {
+            const section = sections[i];
+            const rect = section.getBoundingClientRect();
+
+            if (rect.top <= viewportOffset && rect.bottom > 0) {
+                activeSectionId = section.id;
+                break; 
+            }
         }
 
-        let index = sections.length;
-        while (--index && window.scrollY + 100 < sections[index].offsetTop) {}
-
-        navLinks.forEach(link => link.classList.remove('active'));
-        if (navLinks[index]) {
-            navLinks[index].classList.add('active');
+        if (activeSectionId) {
+            const targetNavLink = document.querySelector(`.nav-link[href="#${activeSectionId}"]`);
+            if (targetNavLink) {
+                targetNavLink.classList.add('active');
+            }
         }
     };
 
-    activateLink(); // Run on load
-    window.addEventListener('scroll', activateLink); // Run on scroll
-
-    // === 3. Bootstrap ScrollSpy (Optional if using custom logic above) ===
-    const mainNav = document.querySelector('#mainNav');
-    if (mainNav) {
-        new bootstrap.ScrollSpy(document.body, {
-            target: '#mainNav',
-            rootMargin: '0px 0px -40%',
-        });
-    }
+    // Run the function on page load and whenever the user scrolls
+    activateLink();
+    window.addEventListener('scroll', activateLink);
 
     // === 4. Collapse Navbar on Link Click (Mobile Only) ===
     const navbarToggler = document.querySelector('.navbar-toggler');
