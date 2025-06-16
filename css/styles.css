@@ -8176,6 +8176,11 @@ textarea.form-control-lg {
   background-color: rgba(var(--bs-white-rgb), var(--bs-bg-opacity)) !important;
 }
 
+.bg-orange {
+  --bs-bg-opactiy: 1;
+  background-color: #FFF8F2 !important;
+}
+
 .bg-body {
   --bs-bg-opacity: 1;
   background-color: rgba(var(--bs-body-bg-rgb), var(--bs-bg-opacity)) !important;
@@ -11424,8 +11429,8 @@ to {
 
 .bubble {
   position: absolute;
-  top: 12%;
-  left: 9%;
+  top: 25%;
+  left: 22%;
   width: 320px;
   height: 320px;
   background: linear-gradient(135deg, rgba(255, 165, 0, 0.6), rgba(255, 193, 7, 0.5));
@@ -11560,7 +11565,7 @@ to {
 
 
   .bubble{
-    left:25%;
+    left:22%;
     top:8%;
   }
 
@@ -11605,6 +11610,14 @@ to {
   .about-us-item:hover {
     transform: none !important;
     animation: none !important;
+  }
+
+  .bg-orange{
+    height: 280vw !important;
+  }
+
+  .container{
+    margin-top: -5px !important;
   }
 
 }
