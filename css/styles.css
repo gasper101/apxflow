@@ -8181,6 +8181,11 @@ textarea.form-control-lg {
   background-color: #FFF8F2 !important;
 }
 
+.bg-orange-dark{
+  --bs-bg-opacity: 0.9;
+  background-color: #f4623a !important;
+}
+
 .bg-body {
   --bs-bg-opacity: 1;
   background-color: rgba(var(--bs-body-bg-rgb), var(--bs-bg-opacity)) !important;
@@ -11618,6 +11623,11 @@ to {
 
   .container{
     margin-top: -5px !important;
+  }
+
+  .arrow-up-btn{
+    position:relative;
+    top: -100px !important;
   }
 
 }
