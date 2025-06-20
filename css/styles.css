@@ -11309,7 +11309,7 @@ header.masthead h1, header.masthead .h1 {
 }
 
 
-@media (max-width: 767px) {
+@media (max-width: 850px) {
     .timeline:before {
         left: 18px; /* Move vertical line to the left */
     }
@@ -11431,10 +11431,15 @@ to {
   overflow: hidden; 
 }
 
+.image-and-bubble-wrapper {
+    position: relative; 
+    display: inline-block; 
+}
+
 
 .bubble {
   position: absolute;
-  top: 25%;
+  top: 15%;
   left: 22%;
   width: 320px;
   height: 320px;
@@ -11468,13 +11473,6 @@ to {
   }
 }
 
-@media (max-width: 768px) {
-  .bubble {
-      width: 220px;
-      height: 220px;
-      left: 0;
-  }
-}
 
 /* Define the fade-in animation */
 @keyframes fadeIn {
@@ -11570,8 +11568,9 @@ to {
 
 
   .bubble{
-    left:22%;
-    top:8%;
+    left:23%;
+    width: 220px;
+    height: 220px;
   }
 
   .masthead .bubble {
@@ -11628,6 +11627,84 @@ to {
   .arrow-up-btn{
     position:relative;
     top: -100px !important;
+  }
+
+}
+
+@media (min-width: 951px) and (max-width: 1300px) {
+  .bg-orange {
+    height: 100vw !important; /* Adjust height for tablets */
+    padding-top: 3rem !important; /* Add some top padding */
+    padding-bottom: 3rem !important; /* Add some bottom padding */
+  }
+
+  .container {
+    margin-top: 50px !important; /* Adjust container top margin for tablets */
+  }
+
+  .bubble {
+    width: 220px; /* Adjust bubble size */
+    height: 220px; /* Adjust bubble size */
+  }
+
+  .col-md-5.text-center img {
+    max-width: 90%; /* Adjust image size for tablets if needed */
+  }
+
+  h2.fw-bold {
+    font-size: 2.2rem; /* Adjust heading size for tablets */
+  }
+
+  .divider {
+    max-width: 30vw !important; /* Adjust divider width for tablets */
+  }
+
+  .list-unstyled li {
+    font-size: 1rem; /* Adjust list item size for tablets */
+  }
+
+  .arrow-up-btn{
+    position:relative;
+    top: -110px !important;
+  }
+}
+
+@media (min-width: 851px) and (max-width: 950px) {
+  .bg-orange {
+    height: 100vw !important; /* Adjust height for tablets */
+    padding-top: 3rem !important; /* Add some top padding */
+    padding-bottom: 3rem !important; /* Add some bottom padding */
+  }
+
+  .container {
+    margin-top: 50px !important; /* Adjust container top margin for tablets */
+  }
+
+  .bubble {
+    width: 180px; /* Adjust bubble size */
+    height: 180px; /* Adjust bubble size */
+  }
+
+  .col-md-5.text-center img {
+    max-width: 90%; /* Adjust image size for tablets if needed */
+  }
+
+  h2.fw-bold {
+    font-size: 2.2rem; /* Adjust heading size for tablets */
+  }
+
+  .divider {
+    max-width: 30vw !important; /* Adjust divider width for tablets */
+  }
+
+  .list-unstyled li {
+    font-size: 1rem; /* Adjust list item size for tablets */
+  }
+
+  .arrow-up-btn{
+    color:white;
+    position:relative;
+    top: -120px !important;
   }
 
 }
