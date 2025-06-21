@@ -8,7 +8,6 @@
 // 
 
 window.addEventListener('DOMContentLoaded', () => {
-
     // === 1. Navbar Shrink Function ===
     const navbarShrink = () => {
         const navbar = document.querySelector('#mainNav');
@@ -76,87 +75,85 @@ window.addEventListener('DOMContentLoaded', () => {
 
 
 document.addEventListener("DOMContentLoaded", function () {
+    // Service items
     let serviceItems = document.querySelectorAll(".service-item");
-
-    let observer = new IntersectionObserver(
-        (entries) => {
-            entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add("show");
-                }
-            });
-        },
-        { threshold: 0.2 }
-    );
-
-    serviceItems.forEach((item) => {
-        observer.observe(item);
-    });
-
-
-    let aboutItems = document.querySelectorAll(".about-item");
-
-    let observer2 = new IntersectionObserver(
-        (entries) => {
-            entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add("show");
-                }
-            });
-        },
-        { threshold: 0.2 }
-    );
-
-    aboutItems.forEach((item) => {
-        observer2.observe(item);
-    });
-
-
-
-    let fadeItems = document.querySelectorAll(".fade-in-item");
-
-    let observer3 = new IntersectionObserver(
-        (entries) => {
-            entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add("show");
-                }
-            });
-        },
-        { threshold: 0.2 }
-    );
-
-    fadeItems.forEach((item) => {
-        observer3.observe(item);
-    });
-
-    let timelinePanels = document.querySelectorAll(".timeline-panel");
-
-    // Create an Intersection Observer instance
-    let observer4 = new IntersectionObserver(
-        (entries) => {
-            entries.forEach((entry) => {
-                // If the element is intersecting (in view)
-                if (entry.isIntersecting) {
-                    // Check if the parent li has the 'timeline-inverted' class
-                    const parentLi = entry.target.closest('li');
-                    if (parentLi && parentLi.classList.contains('timeline-inverted')) {
-                        // Add slide-in-right class for inverted panels
-                        entry.target.classList.add("slide-in-right");
-                    } else {
-                        // Add slide-in-left class for non-inverted panels
-                        entry.target.classList.add("slide-in-left");
+    if (serviceItems.length) {
+        let observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("show");
                     }
-                    // Stop observing once animated
-                    observer4.unobserve(entry.target);
-                }
-            });
-        },
-        { threshold: 0.2 } // Trigger when 20% of the item is visible
-    );
+                });
+            },
+            { threshold: 0.2 }
+        );
 
-    timelinePanels.forEach((panel) => {
-        observer4.observe(panel);
-    });
+        serviceItems.forEach((item) => {
+            if (item) observer.observe(item);
+        });
+    }
 
+    // About items
+    let aboutItems = document.querySelectorAll(".about-item");
+    if (aboutItems.length) {
+        let observer2 = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("show");
+                    }
+                });
+            },
+            { threshold: 0.2 }
+        );
+
+        aboutItems.forEach((item) => {
+            if (item) observer2.observe(item);
+        });
+    }
+
+    // Fade items
+    let fadeItems = document.querySelectorAll(".fade-in-item");
+    if (fadeItems.length) {
+        let observer3 = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("show");
+                    }
+                });
+            },
+            { threshold: 0.2 }
+        );
+
+        fadeItems.forEach((item) => {
+            if (item) observer3.observe(item);
+        });
+    }
+
+    // Timeline panels
+    let timelinePanels = document.querySelectorAll(".timeline-panel");
+    if (timelinePanels.length) {
+        let observer4 = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        const parentLi = entry.target.closest('li');
+                        if (parentLi && parentLi.classList.contains('timeline-inverted')) {
+                            entry.target.classList.add("slide-in-right");
+                        } else {
+                            entry.target.classList.add("slide-in-left");
+                        }
+                        observer4.unobserve(entry.target);
+                    }
+                });
+            },
+            { threshold: 0.2 }
+        );
+
+        timelinePanels.forEach((panel) => {
+            if (panel) observer4.observe(panel);
+        });
+    }
 });
