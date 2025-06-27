@@ -11724,3 +11724,13 @@ body{
     overflow-x: hidden !important;
     max-width: 100vw !important;
 }
+
+.text-success {
+    color: #28a745; /* Bootstrap's success green */
+    font-weight: bold;
+}
+
+.text-danger {
+    color: #dc3545; /* Bootstrap's danger red */
+    font-weight: bold;
+}

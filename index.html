@@ -464,31 +464,31 @@
                 </div>
                 <div class="row gx-4 gx-lg-5 justify-content-center mb-5">
                     <div class="col-lg-6">
-                        <!-- Simple Contact Form using mailto -->
-                        <form action="mailto:info@apxflow.si" method="post" enctype="text/plain" autocomplete="on">
-                            <!-- Name input-->
+                        <form id="contactForm" action="https://formspree.io/f/mrbkrplj" method="POST" autocomplete="on">
                             <div class="form-floating mb-3">
                                 <input class="form-control" id="name" name="name" type="text" placeholder="Vnesite vaše ime..." required />
                                 <label for="name">Ime</label>
                             </div>
-                            <!-- Email address input-->
                             <div class="form-floating mb-3">
                                 <input class="form-control" id="email" name="email" type="email" placeholder="ime@example.com" required />
                                 <label for="email">Email naslov</label>
                             </div>
-                            <!-- Phone number input-->
                             <div class="form-floating mb-3">
                                 <input class="form-control" id="phone" name="phone" type="tel" placeholder="(123) 456-7890" required />
                                 <label for="phone">Telefonska številka</label>
                             </div>
-                            <!-- Message input-->
                             <div class="form-floating mb-3">
                                 <textarea class="form-control" id="message" name="message" placeholder="Vnesite sporočilo tukaj..." style="height: 10rem" required></textarea>
                                 <label for="message">Sporočilo</label>
                             </div>
-                            <!-- Submit Button-->
+
+                            <input type="hidden" name="_subject" value="New Contact from Website!" />
+                            <input type="hidden" name="_replyto" value="email" /> 
+
+                            <div id="formMessages" class="mb-3"></div>
+
                             <div class="d-grid">
-                                <button class="btn btn-primary btn-xl" type="submit">Pošlji</button>
+                                <button class="btn btn-primary btn-xl" id="submitButton" type="submit">Pošlji</button>
                             </div>
                         </form>
                     </div>

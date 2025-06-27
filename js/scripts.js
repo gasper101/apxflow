@@ -156,4 +156,56 @@ document.addEventListener("DOMContentLoaded", function () {
             if (panel) observer4.observe(panel);
         });
     }
+
+
+    const contactForm = document.getElementById('contactForm');
+    const formMessages = document.getElementById('formMessages');
+    const submitButton = document.getElementById('submitButton');
+
+    // Function to display messages
+    function displayMessage(message, type) {
+        formMessages.innerHTML = `<div class="p-3 mb-3 rounded-lg text-center ${type === 'success' ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'}">${message}</div>`;
+        //zbris po 5 s
+        setTimeout(() => {
+            formMessages.innerHTML = '';
+        }, 5000);
+    }
+
+    if (contactForm) {
+        contactForm.addEventListener('submit', async function(event) {
+            event.preventDefault(); // da ne vsakic reloada
+
+            submitButton.disabled = true; 
+            submitButton.textContent = 'Posiljanje...'; 
+            formMessages.innerHTML = ''; 
+
+            const formData = new FormData(this); //dobi data
+
+            try {
+                //tak basic ajax
+                const response = await fetch(this.action, { 
+                    method: this.method, //
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json' 
+                    }
+                });
+
+                const result = await response.json(); 
+
+                if (response.ok) { 
+                    displayMessage('Your message has been sent successfully!', 'success');
+                    contactForm.reset(); 
+                } else {
+                    displayMessage(result.errors ? result.errors[0].message : 'There was an error sending your message. Please try again later.', 'error');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                displayMessage('There was an error sending your message. Please try again later.', 'error');
+            } finally {
+                submitButton.disabled = false; //spt lah posles
+                submitButton.textContent = 'Pošlji'; 
+            }
+        });
+    }
 });
