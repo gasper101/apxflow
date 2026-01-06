@@ -66,10 +66,10 @@ window.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // === 5. SimpleLightbox for Portfolio Images ===
+    /*
     new SimpleLightbox({
         elements: '#portfolio a.portfolio-box'
-    });
+    });*/
 
 });
 

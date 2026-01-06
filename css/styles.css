@@ -10985,7 +10985,7 @@ header.masthead h1, header.masthead .h1 {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  width: 100%;
+  width: 100vw;
   height: 100%;
   position: absolute;
   bottom: 0;
