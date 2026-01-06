@@ -11734,3 +11734,15 @@ body{
     color: #dc3545; /* Bootstrap's danger red */
     font-weight: bold;
 }
+
+.btn-light2{
+  color:white;
+  background:transparent;
+  border: 3px solid white;
+}
+
+.btn-light2:hover{
+  background-color: #f0947a;
+  color:white;
+  border: 3px solid white;
+}
