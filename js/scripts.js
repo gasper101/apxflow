@@ -6,7 +6,6 @@
 //
 // Scripts
 // 
-
 window.addEventListener('DOMContentLoaded', () => {
     // === 1. Navbar Shrink Function ===
     const navbarShrink = () => {
