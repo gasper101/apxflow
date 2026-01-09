@@ -11070,8 +11070,7 @@ header.masthead h1, header.masthead .h1 {
 .arrow-up-container {
   position: relative; 
   display: inline-block;
-  margin-top:100px;
-  margin-bottom:-100px;
+  margin-top:180px;
 }
 
 .arrow-up-btn {
