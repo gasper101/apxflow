@@ -2,8 +2,50 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://apxflow.si/</loc>
-    <lastmod>2025-06-19T17:00:00+02:00</lastmod>
+    <lastmod>2026-01-09T12:00:00+02:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
+  </url>
+
+  <url>
+    <loc>https://apxflow.si/template1/index.html</loc>
+    <lastmod>2026-01-09T12:00:00+02:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://apxflow.si/template3/index.html</loc>
+    <lastmod>2026-01-09T12:00:00+02:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://apxflow.si/template2/index.html</loc>
+    <lastmod>2026-01-09T12:00:00+02:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://apxflow.si/template4/index.html</loc>
+    <lastmod>2026-01-09T12:00:00+02:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://apxflow.si/template5/index.html</loc>
+    <lastmod>2026-01-09T12:00:00+02:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://apxflow.si/template6/index.html</loc>
+    <lastmod>2026-01-09T12:00:00+02:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
 </urlset>
