@@ -3,8 +3,6 @@
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <!--<meta name="description" content="web development company, izdelava spletnih strani" />-->
-        
         <meta name="description" content="APXflow: Strokovna izdelava spletnih strani Slovenija. Študentska ekipa nudi hitre, varne in SEO optimizirane spletne strani ter aplikacije po meri za lokalna podjetja." />
         <meta name="keywords" content="izdelava spletnih strani Slovenija, SEO optimizacija, spletne rešitve Slovenija, razvoj aplikacij, APXflow, ugodne spletne strani" />
         <meta name="author" content="Gasper Vaupot" />
@@ -19,7 +17,7 @@
 
         <link rel="canonical" href="https://apxflow.si/" />
 
-        <title>APXflow | Izdelava spletnih strani in SEO Slovenija</title>
+        <title>APXflow | Manj telefona. Več strank</title>
 
         <script type="application/ld+json">
         {
@@ -59,14 +57,33 @@
         }
         </script>
 
-
         <link rel="icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="apple-touch-icon" sizes="80x75" href="assets/favicon.png">
 
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+        <!-- Tailwind CSS via CDN -->
+        <script src="https://cdn.tailwindcss.com"></script>
+        <script>
+            tailwind.config = {
+                theme: {
+                    extend: {
+                        colors: {
+                            orange: '#f4623a',
+                            'orange-dark': '#e65c2a'
+                        },
+                        fontFamily: {
+                            sans: ['Merriweather Sans', 'sans-serif'],
+                            serif: ['Merriweather', 'serif'],
+                            lato: ['Lato', 'sans-serif'],
+                        }
+                    }
+                }
+            }
+        </script>
+
+        <!-- Bootstrap Icons (Retained for icon usage) -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
 
         <!-- Google Fonts -->
@@ -77,473 +94,392 @@
         <!-- SimpleLightbox CSS -->
         <link href="https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.css" rel="stylesheet">
 
-
         <link href="css/styles.css" rel="stylesheet" />
     </head>
-    <body id="domov">
+    <body id="domov" class="font-sans text-gray-800 antialiased bg-white">
         <!-- Navigation-->
-        <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
-            <div class="container px-4 px-lg-5">
-                <a class="navbar-brand" href="#Uvod" style="margin-left:10px; display: inline-flex; align-items: center;">
-                    <i class="bi-code-slash fs-1 text-primary"></i>
-                    <span style="margin-left: 10px;">APXflow</span>
+        <nav class="fixed top-0 w-full z-50 py-4 transition-all duration-300 bg-transparent" id="mainNav">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
+                <a class="flex items-center text-white nav-text-color text-xl font-bold transition-colors hover:text-orange" href="#Uvod">
+                    <i class="bi-code-slash text-orange text-3xl"></i>
+                    <span class="ml-2">APXflow</span>
                 </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-                <div class="collapse navbar-collapse" id="navbarResponsive">
-                    <ul class="navbar-nav ms-auto my-2 my-lg-0">
-                        <li class="nav-item"><a class="nav-link" href="#storitve">Storitve</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#Onas">O nas</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#potek">Potek</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#portfolio">Projekti</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#contact">Kontakt</a></li>
+                
+                <!-- Mobile Menu Button -->
+                <button class="lg:hidden text-gray-400 hover:text-white nav-text-color focus:outline-none focus:text-white" id="mobile-menu-btn" aria-label="Toggle navigation">
+                    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                </button>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden lg:flex lg:items-center lg:w-auto" id="navbarResponsive">
+                    <ul class="flex flex-col lg:flex-row lg:space-x-8 mt-4 lg:mt-0 text-white nav-text-color font-medium">
+                        <li><a class="nav-link block py-2 hover:text-orange transition-colors" href="#storitve">Storitve</a></li>
+                        <li><a class="nav-link block py-2 hover:text-orange transition-colors" href="#Onas">O nas</a></li>
+                        <li><a class="nav-link block py-2 hover:text-orange transition-colors" href="#potek">Potek</a></li>
+                        <li><a class="nav-link block py-2 hover:text-orange transition-colors" href="#portfolio">Projekti</a></li>
+                        <li class="mt-2 lg:mt-0"><a class="bg-orange hover:bg-orange-dark text-white rounded-full px-6 py-2 block text-center transition-colors shadow-md" href="#contact">Kontaktirajte nas</a></li>
                     </ul>
                 </div>
             </div>
+            <!-- Mobile Menu Dropdown -->
+            <div class="hidden lg:hidden bg-white shadow-lg absolute w-full left-0 top-full" id="mobile-menu">
+                <ul class="flex flex-col px-4 py-4 space-y-2 text-gray-800 font-medium text-center">
+                    <li><a class="nav-link block py-2 hover:text-orange" href="#storitve">Storitve</a></li>
+                    <li><a class="nav-link block py-2 hover:text-orange" href="#Onas">O nas</a></li>
+                    <li><a class="nav-link block py-2 hover:text-orange" href="#potek">Potek</a></li>
+                    <li><a class="nav-link block py-2 hover:text-orange" href="#portfolio">Projekti</a></li>
+                    <li><a class="bg-orange hover:bg-orange-dark text-white rounded-full px-6 py-2 inline-block text-center transition-colors shadow-md mt-2" href="#contact">Kontaktirajte nas</a></li>
+                </ul>
+            </div>
         </nav>
+
         <!-- Masthead-->
-        <header class="masthead" id="Uvod">
-            <div class="container px-4 px-lg-5 h-100">
-                <div class="row gx-4 gx-lg-5 h-100 align-items-center justify-content-center text-center">
-                    <div class="col-lg-8 align-self-end">
-                        <h1 class="text-white font-weight-bold animate-text">Inovativne spletne rešitve in strani za vaše podjetje</h1>
-                        <hr class="divider slide-up"/>
-                    </div>
-                    <div class="col-lg-8 align-self-baseline slide-up">
-                        <p class="text-white-75 mb-5 animate-text2">Pri podjetju APXflow smo specializirani za ustvarjanje profesionalnih in kakovostnih spletnih strani, ki pomagajo podjetjem. Od oblikovanja do razvoja.</p>
-                        <div class="bubble" style="z-index: -1!important; left:40%; top:50%; width:170px; height: 120px; background: linear-gradient(135deg, rgba(237, 124, 92, 0.2), rgba(236, 148, 123, 0.1));"></div>
-                        <a class="btn btn-primary btn-xl" href="#vec">Več o tem</a>
-                    </div>
+        <header class="masthead-bg h-screen min-h-[40rem] flex items-center justify-center pt-20 relative" id="Uvod">
+            <div class="max-w-4xl mx-auto px-4 text-center z-10 mt-16 lg:mt-24">
+                <h1 class="text-white font-bold text-4xl lg:text-5xl xl:text-6xl mb-6 animate-text leading-tight">Naj vaša stran odgovarja namesto vas in prinaša stranke.</h1>
+                <hr class="w-16 h-1 mx-auto bg-orange border-0 rounded slide-up mb-8 opacity-100"/>
+                <p class="text-white/70 text-lg md:text-xl font-light mb-8 slide-up">Manj telefona. Več strank</p>
+                <div class="flex flex-col sm:flex-row justify-center gap-4 mt-8">
+                    <a class="bg-orange hover:bg-orange-dark text-white font-bold rounded-full px-8 py-4 text-lg transition-colors shadow-lg" href="#contact">Kontaktirajte nas</a>
+                    <a class="bg-transparent hover:bg-white/10 text-white border-2 border-white font-bold rounded-full px-8 py-4 text-lg transition-colors" href="pdf/vodic-za-obrtnike.pdf" target="_blank">Prenesi brezplačen vodič</a>
                 </div>
             </div>
         </header>
+
         <!-- About-->
-        <section class="page-section bg-primary" id="vec" style="margin-bottom:20px; position:relative">
-            <div class="container px-4 px-lg-5">
-                <div class="row gx-4 gx-lg-5 justify-content-center">
-                    <div class="col-lg-8 text-center">
-                        <h2 class="text-white mt-0">Vse, kar potrebujete za uspešno spletno stran!</h2>
-                        <hr class="divider divider-light" />
-                        <p class="text-white-75 mb-4">APXflow vam ponuja profesionalne in sodobne spletne rešitve, prilagojene vašemu podjetju. Z našo pomočjo bo vaša spletna stran privabila več strank!</p>
-                        <a class="btn btn-light2 btn-xl" href="#storitve">Storitve</a>
-                    </div>
-                </div>
+        <section class="bg-orange py-24 relative overflow-hidden mb-5" id="vec">
+            <div class="max-w-4xl mx-auto px-4 relative z-10 text-center">
+                <h2 class="text-white font-bold text-3xl lg:text-4xl mb-4">Ste naveličani nenehnih prekinitev med delom?</h2>
+                <hr class="w-16 h-1 mx-auto bg-white border-0 rounded mb-8 opacity-50"/>
+                <p class="text-white/80 text-lg mb-6 max-w-2xl mx-auto">Vemo, kako frustrirajoče je odložiti orodje samo zato, da po telefonu znova razlagate svoje cene in storitve. Izgubljate čas, namesto da bi se posvetili tistemu, kar najbolje znate.</p>
+                <p class="text-white font-bold text-lg mb-8 max-w-2xl mx-auto">Rešitev: Izdelamo vam spletno stran, ki deluje kot vaš osebni pomočnik 24 ur na dan.</p>
+                <a class="bg-white hover:bg-gray-100 text-gray-800 font-bold rounded-full px-8 py-4 text-lg transition-colors shadow-md inline-block" href="#storitve">Kako vam pomagamo</a>
             </div>
 
-            <svg viewBox="0 0 1200 120" class="section-divider" preserveAspectRatio="none" style="position: absolute; bottom: 0; left: 0; width: 100%; height: 120px;">
+            <!-- Wave divider -->
+            <svg viewBox="0 0 1200 120" class="absolute bottom-0 left-0 w-full h-[120px] pointer-events-none" preserveAspectRatio="none">
                 <path d="M0,48L40,59.7C80,71,160,93,240,104C320,115,400,119,480,106.7C560,94,640,82,720,76C800,70,880,70,960,76C1040,82,1120,94,1200,92.7C1280,91,1360,70,1400,59.7L1440,48L1440,120L1400,120C1360,120,1280,120,1200,120C1120,120,1040,120,960,120C880,120,800,120,720,120C640,120,560,120,480,120C400,120,320,120,240,120C160,120,80,120,40,120L0,120Z" fill="white"/>
             </svg>
         </section>
 
 
         <!-- Services-->
-        <section class="page-section" id="storitve" style="min-height: 100vh;">
-            <div class="container px-4 px-lg-5">
-                <h2 class="text-center mt-0 fw-bold">Naše Storitve Spletnega Razvoja</h2>
-                <hr class="divider" />
-                <div class="row gx-4 gx-lg-5">
-                    <div class="col-lg-3 col-md-6 text-center">
-                        <div class="mt-5 service-item h-100">
-                            <div class="mb-2"><i class="bi bi-display fs-1 text-primary"></i></div>
-                            <h3 class="h4 mb-2 fw-bold">Unikatne Spletne Strani</h3>
-                            <p class="text-muted mb-0">Oblikujemo in razvijamo visokozmogljive spletne strani po meri vaših potreb.</p>
-                        </div>
+        <section class="py-24 min-h-screen flex flex-col justify-center" id="storitve">
+            <div class="max-w-7xl mx-auto px-4 w-full">
+                <h2 class="text-center font-bold text-3xl lg:text-4xl text-gray-800 mb-4">Manj klicev. Več časa za delo.</h2>
+                <hr class="w-16 h-1 mx-auto bg-orange border-0 rounded mb-16"/>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div class="text-center service-item">
+                        <div class="mb-4"><i class="bi bi-person-check text-5xl text-orange"></i></div>
+                        <h3 class="font-bold text-xl mb-3">Vaš 24/7 pomočnik</h3>
+                        <p class="text-gray-500">Spletna stran takoj odgovori na osnovna vprašanja strank namesto vas.</p>
                     </div>
-                    <div class="col-lg-3 col-md-6 text-center">
-                        <div class="mt-5 service-item h-100">
-                            <div class="mb-2"><i class="bi-speedometer fs-1 text-primary"></i></div>
-                            <h3 class="h4 mb-2 fw-bold">Hitro & Optimizirano</h3>
-                            <p class="text-muted mb-0">Naše spletne strani so optimizirane za hitrost, SEO in vrhunsko uporabniško izkušnjo.</p>
-                        </div>
+                    <div class="text-center service-item">
+                        <div class="mb-4"><i class="bi-speedometer text-5xl text-orange"></i></div>
+                        <h3 class="font-bold text-xl mb-3">Hitro nalaganje</h3>
+                        <p class="text-gray-500">Stranke ne čakajo. Stran se odpre v sekundi in takoj prikaže vašo ponudbo.</p>
                     </div>
-                    <div class="col-lg-3 col-md-6 text-center">
-                        <div class="mt-5 service-item h-100">
-                            <div class="mb-2"><i class="bi-phone fs-1 text-primary"></i></div>
-                            <h3 class="h4 mb-2 fw-bold">Prilagojeno vsem Napravam</h3>
-                            <p class="text-muted mb-0">Vsaka spletna stran, ki jo ustvarimo, je popolnoma odzivna in deluje na vseh napravah.</p>
-                        </div>
+                    <div class="text-center service-item">
+                        <div class="mb-4"><i class="bi-phone text-5xl text-orange"></i></div>
+                        <h3 class="font-bold text-xl mb-3">Na vseh mobitelih</h3>
+                        <p class="text-gray-500">Večina vas išče prek telefona. Vaša stran bo tam izgledala brezhibno.</p>
                     </div>
-                    <div class="col-lg-3 col-md-6 text-center">
-                        <div class="mt-5 service-item h-100">
-                            <div class="mb-2"><i class="bi-people fs-1 text-primary"></i></div>
-                            <h3 class="h4 mb-2 fw-bold">Stalna Podpora za vse Storitve</h3>
-                            <p class="text-muted mb-0">Nudimo vzdrževanje, posodobitve in podporo, da vaša stran deluje brezhibno.</p>
-                        </div>
+                    <div class="text-center service-item">
+                        <div class="mb-4"><i class="bi-shield-check text-5xl text-orange"></i></div>
+                        <h3 class="font-bold text-xl mb-3">Popolnoma brez skrbi</h3>
+                        <p class="text-gray-500">Mi skrbimo, da stran deluje varno in brez napak. Vi nimate nobenega dela.</p>
                     </div>
                 </div>
             </div>
-
         </section>
 
-        <section class="my-5 py-5 position-relative overflow-hidden bg-orange" style="z-index: 1 !important; height:50vw; margin-bottom:0px;">
-           <svg viewBox="0 0 1200 120" class="section-divider" preserveAspectRatio="none" style="position: absolute; top: 0; left: 0; width: 100%; height: 120px; transform: rotateX(180deg);">
+        <!-- Advantages -->
+        <section class="py-24 relative overflow-hidden bg-gray-50 z-10 pb-0 pt-48 lg:h-[50vw]">
+           <svg viewBox="0 0 1200 120" class="absolute top-0 left-0 w-full h-[120px] pointer-events-none transform rotate-180" preserveAspectRatio="none">
                 <path d="M0,60L30,70C60,80,120,100,180,100C240,100,300,80,360,68C420,75,480,65,540,70C600,80,660,70,720,65C780,60,840,68,900,75C960,88,1020,92,1080,82C1140,72,1200,48,1260,36C1320,24,1380,24,1410,24L1440,24L1440,120L1410,120C1380,120,1320,120,1260,120C1200,120,1140,120,1080,120C1020,120,960,120,900,120C840,120,780,120,720,120C660,120,600,120,540,120C480,120,420,120,360,120C300,120,240,120,180,120C120,120,60,120,30,120L0,120Z" fill="white"/>
             </svg>
-            <div class="container" style="margin-top: 150px;"> 
-                <div class="row align-items-center">
-                    <div class="col-md-5 text-center fade-in-item image-and-bubble-wrapper">
+            <div class="max-w-7xl mx-auto px-4 mt-12 lg:mt-32"> 
+                <div class="flex flex-col md:flex-row items-center gap-12">
+                    <div class="md:w-5/12 text-center fade-in-item image-and-bubble-wrapper relative">
                         <div class="bubble fade-in-item"></div>
-                        <img src="assets/img/lightbulb.webp" alt="Prednosti nasih modernih spletnih strani - APXflow" loading="lazy" class="img-fluid rounded" style="max-width: 80%; z-index:2 !important;">
+                        <img src="assets/img/lightbulb.webp" alt="Prednosti nasih modernih spletnih strani - APXflow" loading="lazy" class="relative z-20 max-w-[80%] mx-auto">
                     </div>
 
-                    <div class="col-md-7">
-                        <h2 class="fw-bold text-dark mb-4 fade-in-item">Prednosti izbire <br>
-                            <span class="text-warning" style="color: #f4623a !important; opacity:0.8;">naših spletnih strani:</span>
-                            <hr class="divider" style="max-width: 20vw; margin-left:0; opacity:0.8;"/>
+                    <div class="md:w-7/12 mt-12 md:mt-0">
+                        <h2 class="font-bold text-3xl lg:text-4xl text-gray-800 mb-6 fade-in-item">Zakaj obrtniki <br>
+                            <span class="text-orange opacity-80">izberejo nas:</span>
+                            <hr class="w-16 h-1 bg-orange border-0 rounded mt-4 opacity-80"/>
                         </h2>
-                        <ul class="list-unstyled mt-3 fade-in-item">
-                            <li class="d-flex align-items-center mb-3">
-                                <span class="me-3 text-orange" style="color: #f4623a ; font-size: 1.4rem;">&#10003;</span> Po meri izdelane spletne rešitve, prilagojene vašim potrebam
+                        <ul class="mt-8 space-y-6 fade-in-item">
+                            <li class="flex items-start">
+                                <span class="text-orange text-2xl mr-4 leading-none">&#10003;</span> 
+                                <span class="text-gray-700 text-lg"><strong>Samodejno informiranje:</strong> Vaše stranke na strani takoj najdejo vaše storitve, delovni čas in kontakt, ne da bi vas klicale za vsako malenkost.</span>
                             </li>
-                            <li class="d-flex align-items-center mb-3">
-                                <span class="me-3 text-orange" style="color: #f4623a ; font-size: 1.4rem;">&#10003;</span> Optimizirane in hitre spletne strani za boljšo uporabniško izkušnjo
+                            <li class="flex items-start">
+                                <span class="text-orange text-2xl mr-4 leading-none">&#10003;</span> 
+                                <span class="text-gray-700 text-lg"><strong>Profesionalen prvi vtis:</strong> Zgradimo zaupanje pri vaših strankah s sodobnim izgledom, še preden sploh stopijo v stik z vami.</span>
                             </li>
-                            <li class="d-flex align-items-center mb-3">
-                                <span class="me-3 text-orange" style="color: #f4623a ; font-size: 1.4rem;">&#10003;</span> SEO-optimizirane strani za boljšo vidnost na iskalnikih
-                            </li>
-                            <li class="d-flex align-items-center mb-3">
-                                <span class="me-3 text-orange" style="color: #f4623a ; font-size: 1.4rem;">&#10003;</span> Varnost in zaščita pred kibernetskimi napadi
-                            </li>
-                            <li class="d-flex align-items-center mb-3">
-                                <span class="me-3 text-orange" style="color: #f4623a ; font-size: 1.4rem;">&#10003;</span> Prilagodljive in razširljive rešitve za rast vašega poslovanja
-                            </li>
-                            <li class="d-flex align-items-center mb-3">
-                                <span class="me-3 text-orange" style="color: #f4623a ; font-size: 1.4rem;">&#10003;</span> Enostavno upravljanje in posodabljanje vsebine
-                            </li>
-                            <li class="d-flex align-items-center mb-3">
-                                <span class="me-3 text-orange" style="color: #f4623a ; font-size: 1.4rem;">&#10003;</span> Celovita podpora in vzdrževanje za brezhibno delovanje
-                            </li>
-                            <li class="d-flex align-items-center mb-3">
-                                <span class="me-3 text-orange" style="color: #f4623a; font-size: 1.4rem;">&#10003;</span> Intuitivni dizajni, ki povečajo privlačnost
+                            <li class="flex items-start">
+                                <span class="text-orange text-2xl mr-4 leading-none">&#10003;</span> 
+                                <span class="text-gray-700 text-lg"><strong>Brezskrbno vzdrževanje:</strong> V celoti prevzamemo skrb za varnost, delovanje in posodobitve. Vi nimate nobenih tehničnih skrbi.</span>
                             </li>
                         </ul>
                     </div>
                 </div>
             </div>
-            <!--
-            <svg viewBox="0 0 1200 120" class="section-divider" preserveAspectRatio="none" style="position: absolute; bottom: 0; left: 0; width: 100%; height: 120px;">
-                <path d="M0,60L30,70C60,80,120,100,180,100C240,100,300,80,360,68C420,56,480,52,540,52C600,52,660,56,720,62C780,68,840,76,900,82C960,88,1020,92,1080,82C1140,72,1200,48,1260,36C1320,24,1380,24,1410,24L1440,24L1440,120L1410,120C1380,120,1320,120,1260,120C1200,120,1140,120,1080,120C1020,120,960,120,900,120C840,120,780,120,720,120C660,120,600,120,540,120C480,120,420,120,360,120C300,120,240,120,180,120C120,120,60,120,30,120L0,120Z" fill="RGBA(248, 249, 250)"/>
-            </svg>-->
         </section>
 
         <!-- About Us -->
-        <section class="page-section py-5 bg-light" id="Onas" style="min-height: 100vh; margin-top:-50px; position:relative">
-            <div class="container px-4 px-lg-5">
-                <h2 class="text-center mt-0 fw-bold text-dark">O Nas</h2>
-                <hr class="divider mx-auto mb-5" style="width: 60px; border-top: 3px solid #f4623a;" />
+        <section class="py-24 bg-gray-100 min-h-screen relative z-0" id="Onas">
+            <div class="max-w-7xl mx-auto px-4">
+                <h2 class="text-center font-bold text-3xl lg:text-4xl text-gray-800 mb-4">O Nas</h2>
+                <hr class="w-16 h-1 mx-auto bg-orange border-0 rounded mb-16"/>
 
-                <div class="row gx-5 align-items-center mb-5 about-item">
-                    <div class="col-md-4 text-center about-us-item">
+                <div class="flex flex-col md:flex-row items-center gap-12 mb-20 about-item">
+                    <div class="md:w-1/3 text-center about-us-item">
                         <img src="assets/img/feri.webp" 
-                            alt="Nasa ekipa za izdelavo spletnih strani" 
-                            class="rounded shadow" 
-                            loading="lazy"
-                            width="324" 
-                            height="322"
-                            style="width: 100%; height: auto; max-height: 350px; object-fit: cover;">
+                            alt="Ekipa za izdelavo spletnih strani" 
+                            class="rounded-xl shadow-lg w-full max-h-[350px] object-cover" 
+                            loading="lazy">
                     </div>
-                    <div class="col-md-8">
-                        <h3 class="h4 fw-bold text-dark mb-3">Naša Ekipa</h3>
-                        <p class="text-muted mb-0 fs-5">Smo študentje Univerze FERI v Mariboru, s področja računalništva in informacijskih tehnologij. Kljub študentskemu statusu si prizadevamo ustvarjati edinstvene rešitve, ki ustrezajo potrebam naših strank.</p>
+                    <div class="md:w-2/3">
+                        <h3 class="font-bold text-2xl text-gray-800 mb-4">Ekipa, ki prevzame tehnično breme</h3>
+                        <p class="text-gray-600 text-lg">Smo IT strokovnjaki z Univerze FERI v Mariboru. Naš cilj ni, da vas obremenjujemo s tehnologijami in tujkami, ampak ravno obratno – prevzamemo vso tehnologijo, kodiranje in optimizacijo, da se vam s tem ni treba nikoli ukvarjati. Vi poskrbite za svoje projekte, mi pa za vašo spletno prisotnost.</p>
                     </div>
                 </div>
 
-                <div class="row gx-5 align-items-center mb-5 about-item flex-md-row-reverse">
-                    <div class="col-md-4 text-center about-us-item">
+                <div class="flex flex-col md:flex-row-reverse items-center gap-12 mb-20 about-item">
+                    <div class="md:w-1/3 text-center about-us-item">
                         <img src="assets/img/technologies.webp" 
                             alt="Tehnologije css, html, javascript, python" 
-                            class="rounded shadow" 
-                            loading="lazy"
-                            width="324" 
-                            height="322"
-                            style="width: 100%; height: auto; max-height: 350px; object-fit: cover;">
+                            class="rounded-xl shadow-lg w-full max-h-[350px] object-cover" 
+                            loading="lazy">
                     </div>
-                    <div class="col-md-8">
-                        <h3 class="h4 fw-bold text-dark mb-3">Tehnologije</h3>
-                        <p class="text-muted mb-0 fs-5">Uporabljamo sodobne tehnologije za spletni razvoj, vključno s <b>HTML5, CSS3, JavaScript, PHP, React, Django</b> in <b>SQL</b>. Naše rešitve temeljijo na najnovejših standardih, kar zagotavlja hitrost, varnost in skalabilnost.</p>
+                    <div class="md:w-2/3">
+                        <h3 class="font-bold text-2xl text-gray-800 mb-4">Tehnologije</h3>
+                        <p class="text-gray-600 text-lg">Uporabljamo sodobne tehnologije za spletni razvoj, vključno s <b>HTML5, CSS3, JavaScript, PHP, React, Django</b> in <b>SQL</b>. Naše rešitve temeljijo na najnovejših standardih, kar zagotavlja hitrost, varnost in skalabilnost.</p>
                     </div>
                 </div>
 
-                <div class="row gx-5 align-items-center mb-5 about-item">
-                    <div class="col-md-4 text-center about-us-item">
+                <div class="flex flex-col md:flex-row items-center gap-12 mb-20 about-item">
+                    <div class="md:w-1/3 text-center about-us-item">
                         <img src="assets/img/goals.webp" 
                             alt="Nas cilj je vam pomagati pri prehodu v digitalni svet in trg" 
-                            class="rounded shadow" 
-                            loading="lazy"
-                            width="324" 
-                            height="322"
-                            style="width: 100%; height: auto; max-height: 350px; object-fit: cover;">
+                            class="rounded-xl shadow-lg w-full max-h-[350px] object-cover" 
+                            loading="lazy">
                     </div>
-                    <div class="col-md-8">
-                        <h3 class="h4 fw-bold text-dark mb-3">Naši Cilji</h3>
-                        <p class="text-muted mb-0 fs-5">Naš glavni cilj je pomagati podjetjem uspešno priti v digitalni svet. Zanesite se na nas za vse vaše spletne potrebe in skupaj bomo ustvarili nekaj izjemnega.</p>
+                    <div class="md:w-2/3">
+                        <h3 class="font-bold text-2xl text-gray-800 mb-4">Naši Cilji</h3>
+                        <p class="text-gray-600 text-lg">Naš glavni cilj je pomagati podjetjem uspešno priti v digitalni svet. Zanesite se na nas za vse vaše spletne potrebe in skupaj bomo ustvarili nekaj izjemnega.</p>
                     </div>
                 </div>
             </div>
 
-            <svg viewBox="0 0 1200 120" class="section-divider" preserveAspectRatio="none" style="position: absolute; bottom: 0; left: 0; width: 100%; height: 120px;">
+            <svg viewBox="0 0 1200 120" class="absolute bottom-0 left-0 w-full h-[120px] pointer-events-none" preserveAspectRatio="none">
                 <path d="M0,60L30,70C60,80,120,100,180,100C240,100,300,80,360,68C420,56,480,52,540,52C600,52,660,56,720,62C780,68,840,76,900,82C960,88,1020,92,1080,82C1140,72,1200,48,1260,36C1320,24,1380,24,1410,24L1440,24L1440,120L1410,120C1380,120,1320,120,1260,120C1200,120,1140,120,1080,120C1020,120,960,120,900,120C840,120,780,120,720,120C660,120,600,120,540,120C480,120,420,120,360,120C300,120,240,120,180,120C120,120,60,120,30,120L0,120Z" fill="white"/>
             </svg>
         </section>
 
-        <section class="page-section bg-white py-5" id="potek">
-            <div class="container px-4 px-lg-5">
-                <h2 class="text-center mt-0 fw-bold">Naš Potek <span style="color: #f4623a !important; opacity:0.8;">Dela</span></h2>
-                <hr class="divider" style="margin-bottom: 80px;" />
-                <ul class="timeline">
+        <!-- Timeline Section -->
+        <section class="bg-white py-24 pb-48" id="potek">
+            <div class="max-w-7xl mx-auto px-4">
+                <h2 class="text-center font-bold text-3xl lg:text-4xl text-gray-800 mb-4">Naš Potek <span class="text-orange opacity-80">Dela</span></h2>
+                <hr class="w-16 h-1 mx-auto bg-orange border-0 rounded mb-24"/>
+                <ul class="timeline relative">
                     <li>
-                        <div class="timeline-image"><i class="bi bi-chat-dots" style="top:-10px;"></i></div>
+                        <div class="timeline-image"><i class="bi bi-telephone mb-2"></i></div>
                         <div class="timeline-panel">
                             <div class="timeline-heading">
-                                <h4>1. Začetni Posvet in Analiza</h4>
-                                <h4 class="subheading">Razumevanje Vaših Potreb</h4>
+                                <h4>1. Kontaktirajte nas</h4>
+                                <h4 class="subheading">Brez obveznosti in stresa</h4>
                             </div>
                             <div class="timeline-body">
-                                <p class="text-muted">Začnemo s poglobljenim pogovorom, da razumemo vaše poslovne cilje, ciljno publiko in specifične zahteve. Analiziramo vaše trenutno stanje in določimo najboljše rešitve.</p>
+                                <p class="text-gray-500">Pokličite nas ali pošljite e-mail. Povejte nam, s čim se ukvarjate in kakšne stranke želite pritegniti. Brez kompliciranja in tehničnega žargona.</p>
                             </div>
                         </div>
                     </li>
                     <li class="timeline-inverted">
-                        <div class="timeline-image"><i class="bi bi-pencil-square"></i></div>
+                        <div class="timeline-image"><i class="bi bi-code-slash mb-1"></i></div>
                         <div class="timeline-panel">
                             <div class="timeline-heading">
-                                <h4>2. Oblikovanje in Prototipiranje</h4>
-                                <h4 class="subheading">Vizualizacija Vaše Spletne Strani</h4>
+                                <h4>2. Mi poskrbimo za tehniko</h4>
+                                <h4 class="subheading">Razvoj vaše digitalne podobe</h4>
                             </div>
                             <div class="timeline-body">
-                                <p class="text-muted">Na podlagi zbranih informacij ustvarimo vizualne prototipe in oblikovne predloge. To vam omogoča, da vidite, kako bo vaša spletna stran izgledala in delovala, preden začnemo s kodiranjem.</p>
+                                <p class="text-gray-500">Vse tehnično delo prevzamemo mi. Zgradimo hitro, varno in moderno spletno stran, ki je optimizirana in takoj pripravljena na delovanje.</p>
                             </div>
                         </div>
                     </li>
                     <li>
-                        <div class="timeline-image"><i class="bi bi-code-slash"></i></div>
+                        <div class="timeline-image"><i class="bi bi-clock-history mb-2"></i></div>
                         <div class="timeline-panel">
                             <div class="timeline-heading">
-                                <h4>3. Razvoj</h4>
-                                <h4 class="subheading">Pretvarjanje Idej v Kodo</h4>
+                                <h4>3. Prihranite čas</h4>
+                                <h4 class="subheading">Vaša stran dela za vas</h4>
                             </div>
                             <div class="timeline-body">
-                                <p class="text-muted">Ko je oblikovanje potrjeno, naša ekipa začne s kodiranjem. Uporabljamo najsodobnejše tehnologije, da zagotovimo robustno, varno in visoko zmogljivo spletno stran.</p>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="timeline-inverted">
-                        <div class="timeline-image"><i class="bi bi-shield-check"></i></div>
-                        <div class="timeline-panel">
-                            <div class="timeline-heading">
-                                <h4>4. Testiranje in Optimizacija</h4>
-                                <h4 class="subheading">Zagotavljanje Brezhibnega Delovanja</h4>
-                            </div>
-                            <div class="timeline-body">
-                                <p class="text-muted">Pred zagonom spletno stran temeljito testiramo za združljivost, odzivnost, hitrost in varnost. Izvedemo tudi SEO optimizacijo za boljšo vidnost v iskalnikih.</p>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="timeline-image"><i class="bi bi-rocket"></i></div>
-                        <div class="timeline-panel">
-                            <div class="timeline-heading">
-                                <h4>5. Zagon in Podpora</h4>
-                                <h4 class="subheading">Vaša Spletna Stran Živa!</h4>
-                            </div>
-                            <div class="timeline-body">
-                                <p class="text-muted">Po uspešnem testiranju vaša nova spletna stran zaživi! Nudimo tudi stalno tehnično podporo, vzdrževanje in posodobitve, da zagotovimo njeno dolgoročno brezhibno delovanje.</p>
+                                <p class="text-gray-500">Vaša nova spletna stran zdaj samodejno odgovarja na osnovna vprašanja in zbira povpraševanja. Vi pa se v miru posvetite svoji obrti in strankam.</p>
                             </div>
                         </div>
                     </li>
                 </ul>
             </div>
-            <div style="margin-bottom:200px !important;"></div>
         </section>
     
         <!-- Portfolio-->
-        <section id="portfolio">
-            <h2 class="text-center mt-0 fw-bold">Naši projekti</h2>
-            <hr class="divider" style="margin-bottom:100px;"/>
-            <div class="container-fluid p-0">
-                <div class="row g-3">
-                    <!--display templte example, slike so 650x350
-                    <div class="col-lg-4 col-sm-6">
-                        <button class="portfolio-box btn btn-link p-0" data-bs-toggle="modal" data-bs-target="#portfolioModal">
-                            <img class="img-fluid" src="template1/cover.webp" alt="Primer spletne strani"/>
-                            <div class="portfolio-box-caption">
-                                <div class="project-category text-white-50">Projekt</div>
-                                <div class="project-name">Primer 1</div>
-                            </div>
-                        </button>
-                    </div>
-
-                    <div class="modal fade" id="portfolioModal" tabindex="-1" aria-labelledby="portfolioModalLabel" aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="portfolioModalLabel">Primer 1</h5>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body">
-                                    <iframe src="template1/index.html"></iframe>
-                                </div>
-                            </div>
-                        </div>
-                    </div>-->
-                    <div class="col-lg-4 col-sm-6">
-                        <a class="portfolio-box" href="template1/index.html">
-                            <img class="img-fluid" src="template1/cover.png" loading="lazy" alt="Izdelava unikatne spletne strani za podjetja - Projekt 1"/>
-                            <div class="portfolio-box-caption">
-                                <div class="project-category text-white-50">Projekt</div>
-                                <div class="project-name">Primer 1</div>
+        <section id="portfolio" class="py-24">
+            <h2 class="text-center font-bold text-3xl lg:text-4xl text-gray-800 mb-4">Naši projekti</h2>
+            <hr class="w-16 h-1 mx-auto bg-orange border-0 rounded mb-24"/>
+            <div class="max-w-[1920px] mx-auto">
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2 px-2">
+                    <div class="relative overflow-hidden rounded-xl shadow-md group">
+                        <a class="block w-full h-full relative" href="template1/index.html">
+                            <img class="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-110" src="template1/cover.png" loading="lazy" alt="Izdelava unikatne spletne strani za podjetja - Projekt 1"/>
+                            <div class="absolute inset-0 bg-orange/90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center text-white">
+                                <div class="uppercase text-sm font-bold tracking-wider mb-2">Projekt</div>
+                                <div class="text-2xl">Primer 1</div>
                             </div>
                         </a>
                     </div>
-
-                    <div class="col-lg-4 col-sm-6">
-                        <a class="portfolio-box" href="template3/index.html">
-                            <img class="img-fluid" src="template3/cover.webp" loading="lazy" alt="Izdelava unikatne spletne strani za podjetja - Projekt 2"/>
-                            <div class="portfolio-box-caption">
-                                <div class="project-category text-white-50">Projekt</div>
-                                <div class="project-name">Primer 2</div>
+                    <div class="relative overflow-hidden rounded-xl shadow-md group">
+                        <a class="block w-full h-full relative" href="template3/index.html">
+                            <img class="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-110" src="template3/cover.webp" loading="lazy" alt="Izdelava unikatne spletne strani za podjetja - Projekt 2"/>
+                            <div class="absolute inset-0 bg-orange/90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center text-white">
+                                <div class="uppercase text-sm font-bold tracking-wider mb-2">Projekt</div>
+                                <div class="text-2xl">Primer 2</div>
                             </div>
                         </a>
                     </div>
-
-                    <div class="col-lg-4 col-sm-6">
-                        <a class="portfolio-box" href="template2/index.html">
-                            <img class="img-fluid" src="template2/cover.webp" loading="lazy" alt="Izdelava unikatne spletne strani za podjetja - Projekt 3"/>
-                            <div class="portfolio-box-caption">
-                                <div class="project-category text-white-50">Projekt</div>
-                                <div class="project-name">Primer 3</div>
+                    <div class="relative overflow-hidden rounded-xl shadow-md group">
+                        <a class="block w-full h-full relative" href="template2/index.html">
+                            <img class="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-110" src="template2/cover.webp" loading="lazy" alt="Izdelava unikatne spletne strani za podjetja - Projekt 3"/>
+                            <div class="absolute inset-0 bg-orange/90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center text-white">
+                                <div class="uppercase text-sm font-bold tracking-wider mb-2">Projekt</div>
+                                <div class="text-2xl">Primer 3</div>
                             </div>
                         </a>
                     </div>
-
-                    <div class="col-lg-4 col-sm-6">
-                        <a class="portfolio-box" href="template4/index.html">
-                            <img class="img-fluid" src="template4/cover.webp" loading="lazy" alt="Izdelava unikatne spletne strani za podjetja - Projekt 4"/>
-                            <div class="portfolio-box-caption">
-                                <div class="project-category text-white-50">Projekt</div>
-                                <div class="project-name">Primer 4</div>
+                    <div class="relative overflow-hidden rounded-xl shadow-md group">
+                        <a class="block w-full h-full relative" href="template4/index.html">
+                            <img class="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-110" src="template4/cover.webp" loading="lazy" alt="Izdelava unikatne spletne strani za podjetja - Projekt 4"/>
+                            <div class="absolute inset-0 bg-orange/90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center text-white">
+                                <div class="uppercase text-sm font-bold tracking-wider mb-2">Projekt</div>
+                                <div class="text-2xl">Primer 4</div>
                             </div>
                         </a>
                     </div>
-
-                    <div class="col-lg-4 col-sm-6">
-                        <a class="portfolio-box" href="template5/index.html">
-                            <img class="img-fluid" src="template5/cover.webp" loading="lazy" alt="Izdelava unikatne spletne strani za podjetja - Projekt 5"/>
-                            <div class="portfolio-box-caption">
-                                <div class="project-category text-white-50">Projekt</div>
-                                <div class="project-name">Primer 5</div>
+                    <div class="relative overflow-hidden rounded-xl shadow-md group">
+                        <a class="block w-full h-full relative" href="template5/index.html">
+                            <img class="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-110" src="template5/cover.webp" loading="lazy" alt="Izdelava unikatne spletne strani za podjetja - Projekt 5"/>
+                            <div class="absolute inset-0 bg-orange/90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center text-white">
+                                <div class="uppercase text-sm font-bold tracking-wider mb-2">Projekt</div>
+                                <div class="text-2xl">Primer 5</div>
                             </div>
                         </a>
                     </div>
-
-                    <div class="col-lg-4 col-sm-6">
-                        <a class="portfolio-box" href="template6/index.html">
-                            <img class="img-fluid" src="template6/cover.webp" loading="lazy" alt="Izdelava unikatne spletne strani za podjetja - Projekt 6"/>
-                            <div class="portfolio-box-caption">
-                                <div class="project-category text-white-50">Projekt</div>
-                                <div class="project-name">Primer 6</div>
+                    <div class="relative overflow-hidden rounded-xl shadow-md group">
+                        <a class="block w-full h-full relative" href="template6/index.html">
+                            <img class="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-110" src="template6/cover.webp" loading="lazy" alt="Izdelava unikatne spletne strani za podjetja - Projekt 6"/>
+                            <div class="absolute inset-0 bg-orange/90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center text-white">
+                                <div class="uppercase text-sm font-bold tracking-wider mb-2">Projekt</div>
+                                <div class="text-2xl">Primer 6</div>
                             </div>
                         </a>
                     </div>
                 </div>
             </div>
-            <div style="margin-bottom: 200px;"></div>
+            <div class="mb-48"></div>
         </section>
         
-
         <!-- Contact-->
-        <section class="page-section bg-orange" id="contact" style="position: relative;">
-             <svg viewBox="0 0 1200 120" class="section-divider" preserveAspectRatio="none" style="position: absolute; top: 0; left: 0; width: 100%; height: 120px; transform: rotateX(180deg); z-index: 2;">
+        <section class="bg-gray-800 py-24 relative" id="contact">
+             <svg viewBox="0 0 1200 120" class="absolute top-0 left-0 w-full h-[120px] pointer-events-none transform rotate-180 z-20" preserveAspectRatio="none">
                 <path d="M0,60L30,70C60,80,120,100,180,100C240,100,300,80,360,68C420,75,480,65,540,70C600,80,660,70,720,65C780,60,840,68,900,75C960,88,1020,92,1080,82C1140,72,1200,48,1260,36C1320,24,1380,24,1410,24L1440,24L1440,120L1410,120C1380,120,1320,120,1260,120C1200,120,1140,120,1080,120C1020,120,960,120,900,120C840,120,780,120,720,120C660,120,600,120,540,120C480,120,420,120,360,120C300,120,240,120,180,120C120,120,60,120,30,120L0,120Z" fill="white"/>
             </svg>
-            <div class="container px-4 px-lg-5">
-                <div class="row gx-4 gx-lg-5 justify-content-center">
-                    <div class="col-lg-8 col-xl-6 text-center">
-                        <h2 class="mt-0 fw-bold">Kontaktirajte Nas <img src="assets/img/call.gif" alt="Izdelava modernih in naprednih spletnih strani APXflow" style="height: 2em; margin-left:5px; margin-bottom:10px;"></img></h2>
-                        <hr class="divider" />
-                        <p class="text-muted mb-5">Ste pripravljeni začeti naslednji projekt z nami? Pošljite nam sporočilo in vrnili se bomo k vam, ko bo mogoče!</p>
-                    </div>
+            <div class="max-w-7xl mx-auto px-4 mt-16">
+                <div class="text-center mb-16">
+                    <h2 class="font-bold text-3xl lg:text-4xl text-white mb-4 flex items-center justify-center">Kontaktirajte Nas <img src="assets/img/call.gif" alt="Izdelava modernih in naprednih spletnih strani APXflow" class="h-8 ml-2 mb-2"></h2>
+                    <hr class="w-16 h-1 mx-auto bg-white border-0 rounded mb-8 opacity-50"/>
+                    <p class="text-white/80 text-lg max-w-2xl mx-auto">Pripravljeni na manj telefona in več strank? Pošljite povpraševanje in prevzeli bomo tehnično breme.</p>
                 </div>
-                <div class="row gx-4 gx-lg-5 justify-content-center mb-5">
-                    <div class="col-lg-6">
-                        <form id="contactForm" action="https://formspree.io/f/xzzgyekz" method="POST" autocomplete="on">
-                            <div class="form-floating mb-3">
-                                <input class="form-control" id="name" name="name" type="text" placeholder="Vnesite vaše ime..." required />
-                                <label for="name">Ime</label>
-                            </div>
-                            <div class="form-floating mb-3">
-                                <input class="form-control" id="email" name="email" type="email" placeholder="ime@example.com" required />
-                                <label for="email">Email naslov</label>
-                            </div>
-                            <div class="form-floating mb-3">
-                                <input class="form-control" id="phone" name="phone" type="tel" placeholder="(123) 456-7890" required />
-                                <label for="phone">Telefonska številka</label>
-                            </div>
-                            <div class="form-floating mb-3">
-                                <textarea class="form-control" id="message" name="message" placeholder="Vnesite sporočilo tukaj..." style="height: 10rem" required></textarea>
-                                <label for="message">Sporočilo</label>
-                            </div>
+                <div class="max-w-2xl mx-auto mb-16 bg-white p-8 rounded-2xl shadow-xl">
+                    <form id="contactForm" action="https://formspree.io/f/xzzgyekz" method="POST" autocomplete="on">
+                        <div class="mb-6 relative">
+                            <label for="name" class="block text-gray-700 text-sm font-bold mb-2">Ime</label>
+                            <input class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange focus:border-transparent transition-shadow" id="name" name="name" type="text" placeholder="Vnesite vaše ime..." required />
+                        </div>
+                        <div class="mb-6 relative">
+                            <label for="email" class="block text-gray-700 text-sm font-bold mb-2">Email naslov</label>
+                            <input class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange focus:border-transparent transition-shadow" id="email" name="email" type="email" placeholder="ime@example.com" required />
+                        </div>
+                        <div class="mb-6 relative">
+                            <label for="phone" class="block text-gray-700 text-sm font-bold mb-2">Telefonska številka</label>
+                            <input class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange focus:border-transparent transition-shadow" id="phone" name="phone" type="tel" placeholder="(123) 456-7890" required />
+                        </div>
+                        <div class="mb-6 relative">
+                            <label for="message" class="block text-gray-700 text-sm font-bold mb-2">Sporočilo</label>
+                            <textarea class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange focus:border-transparent transition-shadow h-40 resize-y" id="message" name="message" placeholder="Vnesite sporočilo tukaj..." required></textarea>
+                        </div>
 
-                            <div class="form-check mb-3">
-                                <input class="form-check-input" type="checkbox" id="tos" name="tos" required />
-                                <label class="form-check-label" for="tos">
-                                    Strinjam se s <a href="tos.html" target="_blank">pogoji poslovanja</a>
-                                </label>
-                                <div class="invalid-feedback">Za nadaljevanje se morate strinjati s pogoji.</div>
-                            </div>
+                        <div class="mb-8 flex items-center">
+                            <input class="h-4 w-4 text-orange focus:ring-orange border-gray-300 rounded" type="checkbox" id="tos" name="tos" required />
+                            <label class="ml-2 block text-gray-700" for="tos">
+                                Strinjam se s <a href="tos.html" target="_blank" class="text-orange underline hover:text-orange-dark">pogoji poslovanja</a>
+                            </label>
+                        </div>
 
-                            <input type="hidden" name="_subject" value="New Contact from Website!" />
-                            <input type="hidden" name="_replyto" value="email" /> 
+                        <input type="hidden" name="_subject" value="New Contact from Website!" />
+                        <input type="hidden" name="_replyto" value="email" /> 
 
-                            <div id="formMessages" class="mb-3"></div>
+                        <div id="formMessages" class="mb-6"></div>
 
-                            <div class="d-grid">
-                                <button class="btn btn-primary btn-xl" id="submitButton" type="submit">Pošlji</button>
-                            </div>
-                        </form>
-                    </div>
+                        <div class="text-center">
+                            <button class="bg-orange hover:bg-orange-dark text-white font-bold py-4 px-8 rounded-full w-full lg:w-auto text-lg transition-colors shadow-lg" id="submitButton" type="submit">Pošlji</button>
+                        </div>
+                    </form>
                 </div>
-                <div class="row gx-4 gx-lg-5 justify-content-center">
-                    <div class="col-lg-4 text-center mb-5 mb-lg-0">
-                        <i class="bi-phone icon-style"></i> <img src="nmbr2.png" alt="Phone contact" style="vertical-align: middle; height: 50%;"><br>
-                        <i class="bi bi-envelope icon-style"></i> info@apxflow.si
+                <div class="text-center text-white/90">
+                    <div class="mb-4 text-xl">
+                        <i class="bi-phone mr-2 text-white/70"></i> <img src="nmbr2.png" alt="Phone contact" class="inline-block h-8 align-middle">
                     </div>
-                </div>
-        </section>
-
-        <section class="page-section pt-1 pb-5">
-            <div class="row justify-content-center">
-                <div class="col-12 text-center">
-                    <div class="arrow-up-container">
-                        <a href="#Uvod" class="arrow-up-btn">
-                            <i class="bi bi-arrow-up-circle"></i>
-                        </a>
+                    <div class="text-xl">
+                        <i class="bi bi-envelope mr-2 text-white/70"></i> info@apxflow.si
                     </div>
                 </div>
             </div>
         </section>
 
+        <!-- Back to top -->
+        <section class="bg-gray-800 py-8">
+            <div class="text-center">
+                <div class="arrow-up-container">
+                    <a href="#Uvod" class="arrow-up-btn" aria-label="Na vrh strani">
+                        <i class="bi bi-arrow-up-circle"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
         
         <!-- Footer-->
-        <footer class="bg-orange-dark py-5 footer">
-            <div class="container px-4 px-lg-5">
-                <div class="row justify-content-center">
-                    <div class="col-lg-8 text-center">
-                        <div class="mb-4">
-                            <a class="text-white mx-2 text-decoration-none small" href="opis.html">O nas</a>
-                            <span class="text-white-50">|</span>
-                            <a class="text-white mx-2 text-decoration-none small" href="tos.html">Pogoji uporabe</a>
-                            <span class="text-white-50">|</span>
-                            <a class="text-white mx-2 text-decoration-none small" href="politika_zasebnosti.html">Zasebnost</a>
-                        </div>
-                        <div class="small text-center text-white-50">
-                        Copyright &copy; 2026 - APXflow. Vse pravice pridržane.
-                        </div>
-                    </div>
+        <footer class="bg-gray-900 py-12">
+            <div class="max-w-7xl mx-auto px-4 text-center">
+                <p class="text-white font-bold text-lg mb-4 tracking-wide">Manj telefona. Več strank.</p>
+                <div class="mb-6 flex justify-center items-center space-x-4 text-sm">
+                    <a class="text-gray-300 hover:text-white transition-colors" href="opis.html">O nas</a>
+                    <span class="text-gray-500">|</span>
+                    <a class="text-gray-300 hover:text-white transition-colors" href="tos.html">Pogoji uporabe</a>
+                    <span class="text-gray-500">|</span>
+                    <a class="text-gray-300 hover:text-white transition-colors" href="politika_zasebnosti.html">Zasebnost</a>
+                </div>
+                <div class="text-gray-500 text-sm">
+                Copyright &copy; 2026 - APXflow. Vse pravice pridržane.
                 </div>
             </div>
         </footer>
+        
         <script src="https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.js" defer></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
         <script src="js/scripts.js" defer></script>
     </body>
 </html>

@@ -55,12 +55,20 @@ window.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('scroll', activateLink);
 
     // === 4. Collapse Navbar on Link Click (Mobile Only) ===
-    const navbarToggler = document.querySelector('.navbar-toggler');
-    const responsiveNavItems = document.querySelectorAll('#navbarResponsive .nav-link');
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const responsiveNavItems = document.querySelectorAll('#mobile-menu .nav-link, #mobile-menu a');
+    
+    if (mobileMenuBtn && mobileMenu) {
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+    }
+
     responsiveNavItems.forEach((item) => {
         item.addEventListener('click', () => {
-            if (window.getComputedStyle(navbarToggler).display !== 'none') {
-                navbarToggler.click();
+            if (!mobileMenu.classList.contains('hidden')) {
+                mobileMenu.classList.add('hidden');
             }
         });
     });

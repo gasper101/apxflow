@@ -4,35 +4,52 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <title>O nas in pravno obvestilo | APXflow</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        orange: '#f4623a',
+                        'orange-dark': '#e65c2a'
+                    },
+                    fontFamily: {
+                        sans: ['Merriweather Sans', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
     <link href="css/styles.css" rel="stylesheet" />
-    <style>
-        body { background-color: #f8f9fa; padding-top: 5rem; }
-        .legal-container { background: white; padding: 3rem; border-radius: 1rem; box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1); margin-bottom: 5rem; }
-        .badge-student { background-color: #f4623a; color: white; padding: 0.5rem 1rem; border-radius: 2rem; font-weight: bold; display: inline-block; margin-bottom: 1rem; }
-    </style>
 </head>
-<body>
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-lg-10 legal-container text-center">
-                <h1>Kdo smo?</h1>
-                <p class="lead">APXflow je kreativna ekipa študentov tehničnih in oblikovalskih smeri.</p>
-                
-                <div class="text-start mt-5">
-                    <h2>Način delovanja</h2>
-                    <p>Kot študenti delujemo fleksibilno in strastno. Naše delo temelji na najnovejših tehnologijah in sodobnih vizualnih standardih. Vsa dela se opravljajo preko <strong>študentske napotnice in študentskega servisa</strong>, kar naročnikom omogoča cenovno ugodne rešitve ob ohranjanju visoke kakovosti.</p>
+<body class="font-sans text-gray-800 antialiased bg-gray-50 pt-20">
+    <div class="max-w-4xl mx-auto px-4 mb-20">
+        <div class="bg-white p-8 md:p-12 rounded-2xl shadow-xl">
+            <h1 class="text-3xl lg:text-4xl font-bold text-orange text-center mb-4">Kdo smo?</h1>
+            <p class="text-xl text-gray-600 text-center mb-10">APXflow je kreativna ekipa študentov tehničnih in oblikovalskih smeri.</p>
+            
+            <div class="space-y-6 text-left">
+                <h2 class="text-2xl font-bold text-gray-800">Način delovanja</h2>
+                <p class="text-gray-600">Kot študenti delujemo fleksibilno in strastno. Naše delo temelji na najnovejših tehnologijah in sodobnih vizualnih standardih. Vsa dela se opravljajo preko <strong class="text-gray-800">študentske napotnice in študentskega servisa</strong>, kar naročnikom omogoča cenovno ugodne rešitve ob ohranjanju visoke kakovosti.</p>
 
-                    <h2>Zakaj izbrati študentsko ekipo?</h2>
-                    <ul>
-                        <li>Svež pogled na digitalno oblikovanje.</li>
-                        <li>Prilagodljivost in hitra odzivnost.</li>
-                        <li>Podpora mladim talentom pri nabiranju izkušenj.</li>
-                    </ul>
+                <h2 class="text-2xl font-bold text-gray-800">Zakaj izbrati študentsko ekipo?</h2>
+                <ul class="list-disc list-inside text-gray-600 space-y-2 ml-4">
+                    <li>Svež pogled na digitalno oblikovanje.</li>
+                    <li>Prilagodljivost in hitra odzivnost.</li>
+                    <li>Podpora mladim talentom pri nabiranju izkušenj.</li>
+                </ul>
 
-                    <hr>
-                    <p class="small text-muted">Vsa komunikacija in morebitna plačila se izvajajo skladno z zakonodajo o študentskem delu v Republiki Sloveniji.</p>
-                </div>
-                <a href="index.html" class="btn btn-primary mb-4">Nazaj na stran</a>
+                <hr class="my-8 border-gray-200">
+                <p class="text-sm text-gray-500 italic">Vsa komunikacija in morebitna plačila se izvajajo skladno z zakonodajo o študentskem delu v Republiki Sloveniji.</p>
+            </div>
+            
+            <div class="mt-10 text-center">
+                <a href="index.html" class="bg-orange hover:bg-orange-dark text-white font-bold py-3 px-8 rounded-full inline-block transition-colors shadow-md">Nazaj na stran</a>
             </div>
         </div>
     </div>

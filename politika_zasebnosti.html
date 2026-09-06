@@ -4,33 +4,59 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <title>Politika zasebnosti | APXflow</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        orange: '#f4623a',
+                        'orange-dark': '#e65c2a'
+                    },
+                    fontFamily: {
+                        sans: ['Merriweather Sans', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
     <link href="css/styles.css" rel="stylesheet" />
-    <style>
-        body { background-color: #f8f9fa; padding-top: 5rem; }
-        .legal-container { background: white; padding: 3rem; border-radius: 1rem; box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1); margin-bottom: 5rem; }
-        h1 { color: #f4623a; }
-    </style>
 </head>
-<body>
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-lg-10 legal-container">
-                <h1>Politika zasebnosti</h1>
-                <p class="text-muted">Skladno z GDPR (Uredbo EU 2016/679)</p>
-                
-                <h2>1. Zbiranje podatkov</h2>
-                <p>Preko kontaktnega obrazca zbiramo naslednje podatke: ime, e-poštni naslov in vsebino sporočila. Te podatke zbiramo izključno z namenom odgovora na vaše povpraševanje.</p>
+<body class="font-sans text-gray-800 antialiased bg-gray-50 pt-20">
+    <div class="max-w-4xl mx-auto px-4 mb-20">
+        <div class="bg-white p-8 md:p-12 rounded-2xl shadow-xl">
+            <h1 class="text-3xl lg:text-4xl font-bold text-orange text-center mb-2">Politika zasebnosti</h1>
+            <p class="text-gray-500 text-center mb-10">Skladno z GDPR (Uredbo EU 2016/679)</p>
+            
+            <div class="space-y-8 text-left">
+                <div>
+                    <h2 class="text-2xl font-bold text-gray-800 mb-3">1. Zbiranje podatkov</h2>
+                    <p class="text-gray-600">Preko kontaktnega obrazca zbiramo naslednje podatke: ime, e-poštni naslov in vsebino sporočila. Te podatke zbiramo izključno z namenom odgovora na vaše povpraševanje.</p>
+                </div>
 
-                <h2>2. Namen obdelave</h2>
-                <p>Podatke obdelujemo na podlagi vašega privoljenja, ki ga podate s klikom na gumb "Pošlji". Podatkov ne posredujemo tretjim osebam in jih ne uporabljamo za namene masovnega oglaševanja brez vaše predhodne privolitve.</p>
+                <div>
+                    <h2 class="text-2xl font-bold text-gray-800 mb-3">2. Namen obdelave</h2>
+                    <p class="text-gray-600">Podatke obdelujemo na podlagi vašega privoljenja, ki ga podate s klikom na gumb "Pošlji". Podatkov ne posredujemo tretjim osebam in jih ne uporabljamo za namene masovnega oglaševanja brez vaše predhodne privolitve.</p>
+                </div>
 
-                <h2>3. Shranjevanje podatkov</h2>
-                <p>Vaše podatke hranimo toliko časa, kolikor je potrebno za izvedbo komunikacije ali dokler ne zahtevate izbrisa.</p>
+                <div>
+                    <h2 class="text-2xl font-bold text-gray-800 mb-3">3. Shranjevanje podatkov</h2>
+                    <p class="text-gray-600">Vaše podatke hranimo toliko časa, kolikor je potrebno za izvedbo komunikacije ali dokler ne zahtevate izbrisa.</p>
+                </div>
 
-                <h2>4. Vaše pravice</h2>
-                <p>Kadarkoli lahko zahtevate vpogled, popravek ali izbris svojih osebnih podatkov preko e-pošte: info@apxflow.si.</p>
+                <div>
+                    <h2 class="text-2xl font-bold text-gray-800 mb-3">4. Vaše pravice</h2>
+                    <p class="text-gray-600">Kadarkoli lahko zahtevate vpogled, popravek ali izbris svojih osebnih podatkov preko e-pošte: info@apxflow.si.</p>
+                </div>
+            </div>
 
-                <a href="index.html" class="btn btn-primary mb-4">Nazaj na stran</a>
+            <div class="mt-10 text-center">
+                <a href="index.html" class="bg-orange hover:bg-orange-dark text-white font-bold py-3 px-8 rounded-full inline-block transition-colors shadow-md">Nazaj na stran</a>
             </div>
         </div>
     </div>
